@@ -1,0 +1,1 @@
+shot output/f_rub.png in 12.0s  gl=metal

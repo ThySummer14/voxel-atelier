@@ -1,0 +1,130 @@
+{
+  "passed": 26,
+  "results": [
+    {
+      "name": "页面响应",
+      "detail": ""
+    },
+    {
+      "name": "真实 WebGL 场景已渲染",
+      "detail": "{'ready': True, 'hour': 17.4, 'tide': {'level': 3.2603595910270724, 'rising': True, 'normalized': 0.9217912450763873, 'causewayDry': False}, 'view': 'overview', 'voxels': 31600, 'drawCalls': 79, 'triangles': 561272, 'fps': 60, 'waterY': 3.2603595910270724, 'windows': 'b4b9b7', 'canvas': [1440, 1000]}"
+    },
+    {
+      "name": "持续渲染帧率",
+      "detail": "60 fps"
+    },
+    {
+      "name": "体素建筑体量",
+      "detail": "31,600 voxels"
+    },
+    {
+      "name": "桌面画布尺寸",
+      "detail": "[1440, 1000]"
+    },
+    {
+      "name": "高潮真实抬升水面",
+      "detail": "3.8000000000000003"
+    },
+    {
+      "name": "低潮露出滩涂与栈桥",
+      "detail": "-3.1"
+    },
+    {
+      "name": "昼夜改变窗户发光",
+      "detail": "90999e → fffff2"
+    },
+    {
+      "name": "修道院近景机位",
+      "detail": ""
+    },
+    {
+      "name": "藏品笔记展开",
+      "detail": ""
+    },
+    {
+      "name": "藏品笔记关闭",
+      "detail": ""
+    },
+    {
+      "name": "导览启动",
+      "detail": ""
+    },
+    {
+      "name": "导览停止",
+      "detail": ""
+    },
+    {
+      "name": "拖拽改变相机",
+      "detail": ""
+    },
+    {
+      "name": "快捷键隐藏界面",
+      "detail": ""
+    },
+    {
+      "name": "快捷键恢复界面",
+      "detail": ""
+    },
+    {
+      "name": "播放按钮联动",
+      "detail": ""
+    },
+    {
+      "name": "暂停按钮联动",
+      "detail": ""
+    },
+    {
+      "name": "环境声可开启",
+      "detail": ""
+    },
+    {
+      "name": "环境声可关闭",
+      "detail": ""
+    },
+    {
+      "name": "画面可导出 PNG",
+      "detail": "潮汐之山-1724.png"
+    },
+    {
+      "name": "移动端画布自适应",
+      "detail": "[390, 844]"
+    },
+    {
+      "name": "移动端无横向溢出",
+      "detail": ""
+    },
+    {
+      "name": "移动端控制栏完整可见",
+      "detail": ""
+    },
+    {
+      "name": "触屏低潮按钮生效",
+      "detail": ""
+    },
+    {
+      "name": "浏览器无脚本或着色器错误",
+      "detail": ""
+    }
+  ],
+  "finalProbe": {
+    "ready": true,
+    "hour": 17.4,
+    "tide": {
+      "level": 3.2603595910270724,
+      "rising": true,
+      "normalized": 0.9217912450763873,
+      "causewayDry": false
+    },
+    "view": "overview",
+    "voxels": 31600,
+    "drawCalls": 63,
+    "triangles": 561091,
+    "fps": 59,
+    "waterY": 3.2603595910270724,
+    "windows": "b4b9b7",
+    "canvas": [
+      390,
+      844
+    ]
+  }
+}

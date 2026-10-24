@@ -1,0 +1,47 @@
+{
+ "name": "ch0",
+ "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch0.png",
+ "probe": {
+  "rgb": [
+   0.792,
+   0.791,
+   0.744
+  ],
+  "hue": 56.6,
+  "hueSat": 85.3,
+  "sat": 0.054,
+  "satPix": 892,
+  "n": 16000
+ },
+ "spec": {
+  "name": "ch0",
+  "chapter": 0
+ },
+ "stats": {
+  "calls": 175,
+  "renderTriangles": null,
+  "fps": "60",
+  "pr": 1.5,
+  "quality": "high",
+  "voxels": 1816104,
+  "faces": 1572531,
+  "triangles": 3145062,
+  "farBlocks": 68453,
+  "wheelBlocks": 242,
+  "chunks": 15,
+  "buildMs": 1788,
+  "heapMB": 169
+ },
+ "webgl": {
+  "webgl2": true,
+  "vendor": "Google Inc. (Apple)",
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+  "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "floatBuffer": true
+ },
+ "viewport": {
+  "width": 1600,
+  "height": 1000
+ },
+ "quality": "high"
+}

@@ -1,0 +1,2 @@
+fps: 60
+shot output/FINAL_hero.png in 16.1s  gl=metal

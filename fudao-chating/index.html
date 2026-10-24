@@ -1,0 +1,49 @@
+<!-- AI生成 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>浮岛茶庭 · Sakura Chashitsu</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+<p data-aigc-mark="1" style="margin:0 0 8px;font-size:10px;line-height:1.3;color:#6b6560;font-weight:400;">AI生成</p>
+
+  <div id="app">
+    <canvas id="stage"></canvas>
+
+    <header class="hud hud-tl">
+      <p class="eyebrow">VOXEL DIORAMA · 01</p>
+      <h1>浮岛茶庭</h1>
+      <p class="sub">Sakura Chashitsu of the Mirage</p>
+      <p class="meta">黄昏 · 微缩雕塑 · 体素静物</p>
+    </header>
+
+    <aside class="hud hud-tr">
+      <div class="rule"></div>
+      <p>金光切过飞檐<br />灯火在花影里醒来</p>
+    </aside>
+
+    <footer class="hud hud-bl">
+      <p class="hint" id="hint">拖拽环绕 · 滚轮远近 · 双击复位</p>
+      <div class="meter"><span id="meterFill"></span></div>
+    </footer>
+
+    <div class="hud hud-br">
+      <p class="credit">crafted in voxels</p>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="veil" id="veil"></div>
+  </div>
+  <script type="module" src="./main.js?v=2"></script>
+</body>
+</html>

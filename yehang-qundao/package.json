@@ -1,0 +1,17 @@
+{
+  "name": "tide-terminus-voxel-nocturne",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild scene.js --bundle --minify --outfile=dist/scene.js --format=iife --legal-comments=inline",
+    "check": "node --check scene.js && node --check dist/scene.js",
+    "test": "node test-geometry.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
+}

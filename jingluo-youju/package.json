@@ -1,0 +1,10 @@
+{
+  "name": "abyssal-post",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "《鲸落邮局》可交互体素艺术作品",
+  "scripts": {
+    "start": "node .serve.cjs"
+  }
+}

@@ -1,0 +1,2 @@
+fps: 60
+shot output/f_hero14.png in 10.6s  gl=metal

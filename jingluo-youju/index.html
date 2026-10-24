@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#031a22" />
+  <meta name="description" content="《鲸落邮局》——嵌在巨鲸胸骨中的深海邮局，一件可交互的体素艺术作品。" />
+  <title>鲸落邮局 · The Abyssal Post</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23052c34'/%3E%3Cpath d='M12 35h40M18 26l-6 9 6 9M28 19l-5 16 5 16M40 24l-4 11 4 11M49 29l-3 6 3 6' fill='none' stroke='%23e6d6b8' stroke-width='4' stroke-linecap='square'/%3E%3Crect x='26' y='28' width='12' height='14' fill='%23f4a261'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/three.module.js",
+        "three/addons/": "./assets/"
+      }
+    }
+  </script>
+  <script>
+    window.__bootErrors = [];
+    window.addEventListener('error', (event) => {
+      window.__bootErrors.push(event.error?.stack || event.message || String(event.error));
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+      window.__bootErrors.push(event.reason?.stack || event.reason?.message || String(event.reason));
+    });
+  </script>
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <div id="app">
+    <canvas id="scene" aria-label="鲸落邮局三维体素场景"></canvas>
+
+    <div class="water-grade" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div id="loading" class="loading" role="status" aria-live="polite">
+      <div class="loading-mark" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p>正在下潜至 −1093 米</p>
+      <div class="loading-track"><i id="loadingBar"></i></div>
+    </div>
+
+    <header class="masthead" id="masthead">
+      <div class="brand">
+        <div class="brand-seal" aria-hidden="true">
+          <span>海</span><span>邮</span>
+        </div>
+        <div>
+          <p class="eyebrow">A LETTER HOME FROM THE DEEP</p>
+          <h1>鲸落邮局</h1>
+          <p class="subtitle">THE ABYSSAL POST <i></i> −1093 M</p>
+        </div>
+      </div>
+      <button id="aboutButton" class="text-button" type="button" aria-haspopup="dialog">
+        <span>作品说明</span><kbd>?</kbd>
+      </button>
+    </header>
+
+    <aside class="depth-rail" aria-label="当前场景状态">
+      <span class="rail-title">深渊坐标</span>
+      <div class="rail-line"><i></i></div>
+      <div class="rail-value">
+        <strong id="depthValue">1093</strong>
+        <small>M BELOW</small>
+      </div>
+      <span class="rail-name" id="zoneName">鲸落庭</span>
+    </aside>
+
+    <section class="intro" id="intro" aria-labelledby="introTitle">
+      <div class="intro-card">
+        <div class="intro-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="intro-index">NO. 1093 / LETTER 01</p>
+        <h2 id="introTitle">有些信，<br />只能送往深处。</h2>
+        <p class="intro-copy">巨鲸沉入海沟后，时间在骨架上继续生活。<br />最后的邮差仍在这里，点亮每一盏迟到的灯。</p>
+        <div class="intro-actions">
+          <button id="diveButton" class="primary-button" type="button">
+            <span>下潜到邮局</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <span class="drag-hint">拖动环视 · 滚轮靠近</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="shot-nav" id="shotNav" aria-label="电影机位">
+      <span class="shot-label">镜头</span>
+      <button class="shot-button is-active" type="button" data-shot="0" aria-label="全景镜头">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h4l2-2h4l2 2h4v12H4z"/><circle cx="12" cy="13" r="3"/></svg>
+        <span>全景</span><kbd>1</kbd>
+      </button>
+      <button class="shot-button" type="button" data-shot="1" aria-label="骨门镜头">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9l7-5 7 5v11M9 20v-7h6v7"/></svg>
+        <span>骨门</span><kbd>2</kbd>
+      </button>
+      <button class="shot-button" type="button" data-shot="2" aria-label="邮筒镜头">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20V8h12v12M6 9h12M10 5h4v3h-4zM11 13h2v4h-2z"/></svg>
+        <span>邮筒</span><kbd>3</kbd>
+      </button>
+      <button class="shot-button" type="button" data-shot="3" aria-label="鲸尾镜头">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c5-1 7-6 9-13 1 6 3 10 9 13M12 5l-3 4h6z"/></svg>
+        <span>鲸尾</span><kbd>4</kbd>
+      </button>
+    </nav>
+
+    <section class="tide-console" id="tideConsole" aria-label="海况控制">
+      <div class="console-heading">
+        <span>潮汐声景</span>
+        <small>ECHO CHAMBER · 1093 M</small>
+      </div>
+      <div class="tide-options" role="radiogroup" aria-label="选择海况">
+        <button class="tide-button is-active" type="button" data-tide="0" role="radio" aria-checked="true">
+          <i class="tide-glyph still"></i><span>静潮</span>
+        </button>
+        <button class="tide-button" type="button" data-tide="1" role="radio" aria-checked="false">
+          <i class="tide-glyph song"></i><span>鲸歌</span>
+        </button>
+        <button class="tide-button" type="button" data-tide="2" role="radio" aria-checked="false">
+          <i class="tide-glyph storm"></i><span>黑潮</span>
+        </button>
+      </div>
+    </section>
+
+    <aside class="tool-dock" aria-label="场景工具">
+      <button id="tourButton" type="button" aria-pressed="false" data-tooltip="自动巡游 C">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5zM5 5v14"/></svg>
+        <span>巡游</span>
+      </button>
+      <button id="lampButton" class="is-active" type="button" aria-pressed="true" data-tooltip="提灯 L">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7h6l2 3v10H7V10zM10 7V4h4v3M10 12h4v5h-4z"/></svg>
+        <span>提灯</span>
+      </button>
+      <button id="soundButton" type="button" aria-pressed="false" data-tooltip="环境声 M">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h4l5-4v12l-5-4H5zM17 9c2 2 2 4 0 6M19 6c4 4 4 8 0 12"/></svg>
+        <span>声景</span>
+      </button>
+      <button id="hideButton" type="button" data-tooltip="隐藏界面 H">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3-5 9-5 9 5 9 5-3 5-9 5-9-5-9-5z"/><circle cx="12" cy="12" r="2"/></svg>
+        <span>净屏</span>
+      </button>
+    </aside>
+
+    <div class="mail-hint" id="mailHint" role="button" tabindex="0" aria-label="点击发光邮筒，投递一封信">
+      <span class="hint-ring" aria-hidden="true"><i></i></span>
+      <span>点击邮筒<br />投递一封信</span>
+    </div>
+
+    <article class="letter-card" id="letterCard" role="dialog" aria-modal="false" aria-labelledby="letterTitle" hidden>
+      <button id="closeLetter" class="letter-close" type="button" aria-label="收起信件">×</button>
+      <div class="letter-stamp" aria-hidden="true">
+        <span>深<br />海<br />邮<br />政</span><i>1093</i>
+      </div>
+      <p class="letter-meta" id="letterMeta">收件人：远岸 · 第 1093 号航次</p>
+      <h2 id="letterTitle">给仍然抬头的人</h2>
+      <p id="letterBody">灯塔熄灭以后，星星并没有走远。它们只是把光，送往更漫长的地方。</p>
+      <div class="letter-sign">—— 沉入海沟的船长</div>
+      <div class="letter-progress"><i id="letterProgress"></i></div>
+    </article>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="key-legend" id="keyLegend" aria-hidden="true">
+      <span><kbd>1-4</kbd> 切换镜头</span>
+      <span><kbd>C</kbd> 自动巡游</span>
+      <span><kbd>H</kbd> 隐藏界面</span>
+    </div>
+
+    <section class="about-panel" id="aboutPanel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" hidden>
+      <button id="closeAbout" class="about-close" type="button" aria-label="关闭作品说明">×</button>
+      <div class="about-index">作品札记 / 2026</div>
+      <h2 id="aboutTitle">鲸落不是沉默，<br />是另一种抵达。</h2>
+      <p>《鲸落邮局》把“鲸落”从生态学名词改写为一个关于记忆的容器。巨鲸的身体在深海缓慢分解，附着生物获得新生；与此同时，虚拟邮局继续替无法亲自告别的语言寻找收件人。</p>
+      <p>作品没有真正的结局。灯会熄灭，信会投递，潮水会再次把新的声音送到门前。</p>
+      <div class="about-facts">
+        <div><strong>−1093 M</strong><span>虚构坐标</span></div>
+        <div><strong>1,842</strong><span>体素构件</span></div>
+        <div><strong>∞</strong><span>可投递信件</span></div>
+      </div>
+      <div class="about-credits"><span>交互体素装置</span><span>WebGL / Three.js</span></div>
+    </section>
+
+    <div class="interface-hidden-hint" id="interfaceHiddenHint" aria-hidden="true">按 H 恢复界面</div>
+    <div class="orientation-note" aria-hidden="true"><span>↻</span><p>横过来，<br />会看到更远的海</p></div>
+  </div>
+</body>
+</html>

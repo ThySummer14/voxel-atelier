@@ -1,0 +1,3 @@
+Copyright (c) 2026. Generated for the commissioning user.
+Permission is granted to the commissioning user to use, modify, and distribute this artwork and its source for any purpose. Third-party library rights remain governed by their respective licenses.
+Three.js is included under the MIT License; see dist/THREE-LICENSE.txt.

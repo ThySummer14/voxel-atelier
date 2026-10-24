@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>极夜流火 · 1928 太平洋型 4-6-2 蒸汽机车全剖切与华氏配气动力学</title>
+  <link rel="stylesheet" href="css/ui.css">
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- 艺术标题铭牌 -->
+  <header id="header-plate">
+    <h1>
+      <span>极夜流火</span>
+      <span style="font-size: 13px; color: #06d6a0; border: 1px solid #06d6a0; padding: 2px 6px; border-radius: 3px;">PACIFIC 4-6-2</span>
+    </h1>
+    <div class="sub">1928 极地重型干线客运蒸汽机车 · 全工程剖切与华氏配气动力学</div>
+  </header>
+
+  <!-- 实况遥测仪表板 -->
+  <aside id="telemetry-panel">
+    <div class="telem-item">
+      <span class="telem-label">运行车速</span>
+      <span class="telem-value" id="val-speed">72.0 km/h</span>
+    </div>
+    <div class="telem-item">
+      <span class="telem-label">动轮转速</span>
+      <span class="telem-value" id="val-rpm">191 RPM</span>
+    </div>
+    <div class="telem-item">
+      <span class="telem-label">截断配气率</span>
+      <span class="telem-value warn" id="val-cutoff">65%</span>
+    </div>
+    <div class="telem-item">
+      <span class="telem-label">指示马力</span>
+      <span class="telem-value" id="val-hp">2427 HP</span>
+    </div>
+    <div class="telem-item">
+      <span class="telem-label">锅炉汽压</span>
+      <span class="telem-value" id="val-press">14.2 bar</span>
+    </div>
+    <div class="telem-item">
+      <span class="telem-label">活塞冲程</span>
+      <span class="telem-value" id="val-stroke">700 mm</span>
+    </div>
+    <div class="telem-item" style="grid-column: span 3; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;">
+      <span class="telem-label">渲染帧率</span>
+      <span class="telem-value" id="val-fps" style="font-size: 13px; color: #f3c959;">60 FPS</span>
+    </div>
+  </aside>
+
+  <!-- 左侧导播运镜机位 -->
+  <nav id="camera-bar">
+    <button class="cam-btn active" data-cam="hero">[1] 铁流破晓 · 全景</button>
+    <button class="cam-btn" data-cam="gear">[2] 华氏配气 · 微距</button>
+    <button class="cam-btn" data-cam="cutaway">[3] 万钧机心 · 剖切</button>
+    <button class="cam-btn" data-cam="cab">[4] 司炉罗盘 · 驾驶室</button>
+    <button class="cam-btn" data-cam="front">[5] 破雪先锋 · 探照灯</button>
+    <button class="cam-btn" data-cam="aurora">[6] 极光巡礼 · 苍穹</button>
+  </nav>
+
+  <!-- 底部中央司炉操纵台 -->
+  <main id="control-deck">
+    <div class="control-group">
+      <label for="speed-slider">节流阀 / 车速 (km/h)</label>
+      <input type="range" id="speed-slider" min="0" max="120" step="1" value="72">
+    </div>
+
+    <div class="control-group">
+      <label for="cutoff-slider">换向截断率 (Cutoff)</label>
+      <input type="range" id="cutoff-slider" min="-0.75" max="0.75" step="0.05" value="0.65">
+    </div>
+
+    <button class="btn-metal" id="btn-whistle">客运五和弦汽笛 (空格)</button>
+    <button class="btn-metal" id="btn-cutaway">万钧机心 · 剖切 (X)</button>
+    <button class="btn-metal" id="btn-mute" style="padding: 10px 14px;">音效开启 (M)</button>
+  </main>
+
+  <!-- 快捷提示 -->
+  <footer id="hint-bar">
+    拖拽: 环视 | 滚轮: 缩放 | 空格: 鸣笛 | X: 剖切工程内构 | 1-6: 运镜 | M: 静音
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

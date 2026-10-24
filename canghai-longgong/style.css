@@ -1,0 +1,94 @@
+/* 沧海龙宫 — 界面样式：深海帷幕 + 展柜铭牌式极简 UI */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; background: #06101e; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+#stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+/* —— 开场帷幕 —— */
+#veil {
+  position: fixed; inset: 0; z-index: 30;
+  background: linear-gradient(180deg, #0a1a2e 0%, #1a3a5a 50%, #2a5a6a 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; transition: opacity 1.4s ease; opacity: 1;
+}
+#veil.gone { opacity: 0; pointer-events: none; }
+.veil-title {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+  font-size: 58px; letter-spacing: 0.4em; text-indent: 0.4em;
+  color: #c8dae8; font-weight: 600;
+  text-shadow: 0 0 40px rgba(100,180,200,0.4), 0 0 80px rgba(80,160,220,0.2);
+}
+.veil-sub {
+  font-size: 13px; letter-spacing: 0.5em; text-indent: 0.5em;
+  color: rgba(160,200,220,0.7);
+}
+.veil-line {
+  width: 180px; height: 2px;
+  background: rgba(100,180,200,0.15);
+  overflow: hidden; border-radius: 2px;
+}
+.veil-line i {
+  display: block; width: 40%; height: 100%;
+  background: linear-gradient(90deg, #3aa090, #6ad0c0);
+  border-radius: 2px;
+  animation: slide 1.4s ease-in-out infinite;
+}
+@keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(450%); } }
+
+/* —— 铭牌 —— */
+#brand {
+  position: fixed; top: 22px; left: 26px; z-index: 10;
+  color: #c8dae8; text-shadow: 0 1px 14px rgba(10, 20, 40, 0.7);
+  user-select: none; pointer-events: none;
+}
+#brand h1 {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+  font-size: 26px; letter-spacing: 0.28em; font-weight: 600;
+}
+#brand p { font-size: 10.5px; letter-spacing: 0.22em; opacity: 0.72; margin-top: 5px; }
+
+/* —— 控件 —— */
+#ui {
+  position: fixed; bottom: 22px; left: 0; right: 0; z-index: 10;
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  padding: 0 16px;
+}
+.chip-group {
+  display: flex; gap: 2px; padding: 4px;
+  background: rgba(10, 20, 35, 0.6);
+  border: 1px solid rgba(100, 180, 200, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.chip {
+  appearance: none; border: 0; cursor: pointer;
+  font: 500 12.5px/1 -apple-system, "PingFang SC", sans-serif;
+  letter-spacing: 0.12em;
+  color: rgba(180, 210, 230, 0.72);
+  background: transparent; border-radius: 9px;
+  padding: 8px 14px;
+  transition: background 0.18s, color 0.18s;
+}
+.chip:hover { color: #e0f0ff; background: rgba(100, 180, 200, 0.12); }
+.chip.on { color: #0a1a2e; background: linear-gradient(135deg, #3aa090, #6ad0c0); }
+.chip.on:hover { background: linear-gradient(135deg, #4ab0a0, #7ae0d0); }
+
+#hint {
+  position: fixed; right: 22px; bottom: 24px; z-index: 10;
+  font-size: 10.5px; letter-spacing: 0.14em;
+  color: rgba(140, 180, 200, 0.5);
+  text-shadow: 0 1px 6px rgba(10, 20, 40, 0.6);
+  user-select: none; pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .veil-title { font-size: 36px; }
+  #hint { display: none; }
+  #brand h1 { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .veil-line i { animation: none; }
+}

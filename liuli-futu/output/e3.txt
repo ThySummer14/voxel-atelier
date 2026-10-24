@@ -1,0 +1,1 @@
+shot output/x_fin.png in 15.0s  gl=metal

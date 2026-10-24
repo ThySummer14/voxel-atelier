@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>候风 · 体素地动仪</title>
+<style>
+  :root {
+    --paper: #e8d9b0;
+    --paper-dim: #b8a888;
+    --amber: #ffb347;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0e1a; }
+  body {
+    font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+    color: var(--paper);
+    -webkit-user-select: none; user-select: none;
+  }
+  #scene { position: fixed; inset: 0; display: block; cursor: grab; }
+  #scene.dragging { cursor: grabbing; }
+  #scene.hover-dragon { cursor: pointer; }
+
+  .hud { position: fixed; z-index: 10; pointer-events: none; }
+
+  #hud-title { top: 28px; left: 32px; }
+  #hud-title h1 {
+    font-size: 44px; font-weight: 600; letter-spacing: 14px;
+    color: var(--paper); text-shadow: 0 2px 24px rgba(255, 179, 71, .25);
+    writing-mode: horizontal-tb;
+  }
+  #hud-title p {
+    margin-top: 8px; font-size: 13px; letter-spacing: 5px; color: var(--paper-dim);
+  }
+  #hud-title .seal {
+    display: inline-block; margin-left: 10px; padding: 2px 5px;
+    border: 1px solid rgba(232, 217, 176, .4); font-size: 11px; letter-spacing: 2px;
+    color: var(--paper-dim); vertical-align: 3px;
+  }
+
+  #hud-log {
+    left: 32px; bottom: 88px; font-size: 15px; letter-spacing: 3px;
+    color: var(--paper); text-shadow: 0 1px 8px #000;
+    opacity: 0; transition: opacity .4s;
+  }
+  #hud-log.show { opacity: 1; }
+  #hud-log .dir { color: var(--amber); }
+
+  #hud-hint {
+    right: 32px; bottom: 24px; font-size: 11px; letter-spacing: 2px;
+    color: rgba(184, 168, 136, .75); text-align: right; line-height: 1.9;
+  }
+
+  #hud-controls {
+    left: 50%; bottom: 22px; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 18px; pointer-events: auto;
+    background: rgba(10, 14, 26, .55); border: 1px solid rgba(232, 217, 176, .18);
+    border-radius: 999px; padding: 10px 22px; backdrop-filter: blur(6px);
+  }
+  #hud-controls .mag { display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 2px; color: var(--paper-dim); }
+  #hud-controls input[type=range] {
+    -webkit-appearance: none; appearance: none; width: 110px; height: 2px;
+    background: linear-gradient(90deg, #6b5a3a, var(--amber)); border-radius: 2px; outline: none;
+  }
+  #hud-controls input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%;
+    background: var(--amber); border: 2px solid #0a0e1a; box-shadow: 0 0 10px rgba(255,179,71,.8); cursor: pointer;
+  }
+  #hud-controls .mag b { color: var(--paper); font-weight: 600; min-width: 44px; text-align: center; }
+  #hud-controls button {
+    font-family: inherit; font-size: 12px; letter-spacing: 3px; cursor: pointer;
+    color: var(--paper-dim); background: transparent; border: 1px solid rgba(232, 217, 176, .25);
+    border-radius: 999px; padding: 6px 14px; transition: all .25s;
+  }
+  #hud-controls button:hover { color: var(--paper); border-color: rgba(232, 217, 176, .6); }
+  #hud-controls button.on { color: #0a0e1a; background: var(--amber); border-color: var(--amber); }
+
+  #hud-label {
+    position: fixed; z-index: 9; pointer-events: none;
+    transform: translate(-50%, -130%);
+    font-size: 17px; letter-spacing: 4px; color: var(--amber);
+    text-shadow: 0 0 18px rgba(255, 157, 60, .65), 0 1px 6px #000;
+    opacity: 0; transition: opacity .3s;
+  }
+  #hud-label.show { opacity: 1; }
+  #hud-label small { display: block; text-align: center; font-size: 11px; color: var(--paper-dim); letter-spacing: 3px; margin-top: 2px; }
+
+  #hud-vignette {
+    position: fixed; inset: 0; z-index: 5; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 42%, transparent 52%, rgba(4, 6, 14, .55) 100%),
+      linear-gradient(to bottom, rgba(4, 6, 14, .35), transparent 18%, transparent 82%, rgba(4, 6, 14, .45));
+  }
+
+  #loading {
+    position: fixed; inset: 0; z-index: 100; background: #0a0e1a;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+    transition: opacity .8s; font-size: 15px; letter-spacing: 8px; color: var(--paper-dim);
+  }
+  #loading.done { opacity: 0; pointer-events: none; }
+  #loading .big { font-size: 52px; letter-spacing: 26px; color: var(--paper); text-indent: 26px; }
+
+  @media (max-width: 720px) {
+    #hud-title h1 { font-size: 30px; letter-spacing: 8px; }
+    #hud-hint { display: none; }
+    #hud-controls { gap: 10px; padding: 8px 14px; bottom: 14px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div id="hud-vignette"></div>
+
+<div class="hud" id="hud-title">
+  <h1>候风</h1>
+  <p>候风地动仪 · 汉 张衡<span class="seal">八龙衔丸</span></p>
+</div>
+
+<div class="hud" id="hud-log"></div>
+<div class="hud" id="hud-hint">
+  拖拽旋转 · 滚轮缩放 · 点击龙首候震<br>
+  数字键 1-8 八方 · Q 八龙齐奏 · A 自动候震 · E 解构 · M 静音
+</div>
+
+<div class="hud" id="hud-controls">
+  <span class="mag">震级 <input type="range" id="mag" min="1" max="9" step="1" value="4"><b id="mag-val">肆级</b></span>
+  <button id="btn-melody">齐奏</button>
+  <button id="btn-auto">自动</button>
+  <button id="btn-explode">解构</button>
+  <button id="btn-mute">静音</button>
+</div>
+
+<div id="hud-label"><span class="t"></span><small class="s"></small></div>
+<div id="loading"><div class="big">候 风</div><div>铸 铜 为 仪 · 候 风 地 动</div></div>
+
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

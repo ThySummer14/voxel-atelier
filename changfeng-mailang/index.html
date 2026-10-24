@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>长风麦浪 · 体素</title>
+<style>
+  :root { color-scheme: dark; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #1b1710; }
+  #app, #app canvas { display: block; width: 100%; height: 100%; }
+  #status {
+    position: fixed; inset: 0; display: grid; place-items: center;
+    color: #f0dcb4; font: 400 14px/1.8 -apple-system, "PingFang SC", "Songti SC", serif;
+    letter-spacing: .22em; background: #1b1710; transition: opacity .9s ease; z-index: 5;
+  }
+  body.ready #status { opacity: 0; pointer-events: none; }
+  .plate {
+    position: fixed; left: 26px; top: 22px; z-index: 4; pointer-events: none;
+    color: #fff4e0; text-shadow: 0 1px 2px rgba(40, 24, 8, .85), 0 0 14px rgba(40, 24, 8, .45);
+    opacity: 0; transition: opacity 1.6s ease .6s;
+  }
+  body.ready .plate { opacity: 1; }
+  .plate h1 { font: 400 26px/1.2 "Songti SC", "STSong", serif; letter-spacing: .38em; }
+  .plate .rule { width: 46px; height: 1px; background: #fff4e0; opacity: .6; margin: 9px 0 8px; }
+  .plate p { font: 400 11.5px/1.7 -apple-system, "PingFang SC", sans-serif; letter-spacing: .2em; opacity: .78; }
+  .plate .by { margin-top: 5px; font-size: 11px; opacity: .8; letter-spacing: .14em; }
+  /* 署名：右下角，像画上的落款 */
+  .sign {
+    position: fixed; right: 28px; bottom: 52px; z-index: 4; pointer-events: none;
+    color: #fff4e0; opacity: 0; transition: opacity 1.6s ease 1.6s;
+    font: 400 15px/1 "Songti SC", "STSong", serif; letter-spacing: .3em;
+    text-shadow: 0 1px 2px rgba(40, 24, 8, .85), 0 0 14px rgba(40, 24, 8, .45);
+  }
+  .sign::after {
+    content: ""; display: block; width: 100%; height: 1px; margin-top: 7px;
+    background: currentColor; opacity: .45;
+  }
+  body.ready .sign { opacity: .62; }
+  /* 静帧出图：不做淡入动画，直接给最终透明度 */
+  body.shot .plate, body.shot .sign, body.shot .hint { transition: none !important; }
+  body.shot .plate { opacity: 1; }
+  body.shot .sign { opacity: .66; }
+  body.shot .hint { opacity: .5; }
+  .hint {
+    position: fixed; right: 24px; bottom: 20px; z-index: 4; pointer-events: none;
+    color: #fff4e0; opacity: 0; transition: opacity 1.6s ease 1.2s;
+    font: 400 11px/1.6 -apple-system, "PingFang SC", sans-serif; letter-spacing: .16em; opacity: 0;
+  }
+  body.ready .hint { opacity: .5; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js",
+    "three/addons/": "./vendor/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="status">正在生成这片麦田…</div>
+  <div id="diag" style="position:fixed;left:-9999px;top:0"></div>
+  <div class="plate">
+    <h1>长风麦浪</h1>
+    <div class="rule"></div>
+    <p>VOXEL STUDY · GOLDEN HOUR</p>
+    <p class="by">麦秋 · 2026 · AI 生成，模型 new-provider/stealth/space-bunny-alpha</p>
+  </div>
+  <div class="sign">麦秋</div>
+  <div class="hint">拖动环视 · 滚轮缩放 · 空格自动巡游 · 数字键 1–6 换机位</div>
+  <script type="module" src="./js/main.js"></script>
+  <script>
+    addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        const c = window.__controls;
+        if (c) c.autoRotate = !c.autoRotate;
+      }
+      const n = '123456'.indexOf(e.key);
+      if (n >= 0 && window.__gotoCam) window.__gotoCam(n);
+    });
+  </script>
+</body>
+</html>

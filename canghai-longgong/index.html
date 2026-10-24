@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沧海龙宫 · 体素东方幻境</title>
+<meta name="description" content="暮霭沉沉，一座东方龙宫浮升于深海之上——琉璃飞檐、珊瑚宝柱、龙脊蜿蜒。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="stage"></canvas>
+
+<div id="veil">
+  <div class="veil-title">沧海龙宫</div>
+  <div class="veil-sub">PALACE OF THE DRAGON KING · 体素 · 深海幻境</div>
+  <div class="veil-line"><i></i></div>
+</div>
+
+<header id="brand">
+  <h1>沧海龙宫</h1>
+  <p>PALACE OF THE DRAGON KING · 体素 · 暮色深海</p>
+</header>
+
+<nav id="ui">
+  <div class="chip-group" role="group" aria-label="机位">
+    <button class="chip view-btn on">全景</button>
+    <button class="chip view-btn">龙宫</button>
+    <button class="chip view-btn">龙首</button>
+  </div>
+</nav>
+
+<footer id="hint">拖拽环视 · 滚轮推拉 · 双击回全景</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

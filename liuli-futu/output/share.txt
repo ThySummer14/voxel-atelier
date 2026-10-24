@@ -1,0 +1,1 @@
+shot output/share_raw.png in 15.2s  gl=metal

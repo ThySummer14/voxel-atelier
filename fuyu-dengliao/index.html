@@ -1,0 +1,67 @@
+<!-- AI生成 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浮屿灯寮 · Voxel Isle</title>
+    <meta name="description" content="一座悬在暮色里的体素山岛——茶寮、飞瀑、掌灯。" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/three.module.js",
+          "three/addons/": "./assets/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+<p data-aigc-mark="1" style="margin:0 0 8px;font-size:10px;line-height:1.3;color:#6b6560;font-weight:400;">AI生成</p>
+
+    <div id="stage"></div>
+    <div id="scroll-space"><div class="spacer"></div></div>
+
+    <div id="hud">
+      <div id="brand">
+        <div class="kicker">Voxel Diorama · 2026</div>
+        <h1>浮屿灯寮</h1>
+        <div class="rule"></div>
+        <div class="tagline">暮色悬山 · 一寮灯火 · 飞瀑入云</div>
+      </div>
+
+      <nav id="chapters" aria-label="章节">
+        <button class="chapter-btn is-active" data-ch="0">浮屿</button>
+        <button class="chapter-btn" data-ch="1">茶寮</button>
+        <button class="chapter-btn" data-ch="2">飞瀑</button>
+        <button class="chapter-btn" data-ch="3">掌灯</button>
+      </nav>
+
+      <div id="narrative" class="is-show">
+        <div class="ch-index">01 / 04</div>
+        <h2>浮屿</h2>
+        <p>山自暮色里浮起，把一小块人间悬在云上。远看是剪影，近看每一粒方块都亮着呼吸。</p>
+      </div>
+
+      <div id="controls-tip">
+        拖动 环绕<br />
+        滚动 换章<br />
+        点灯 脉冲
+      </div>
+
+      <div id="footer-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+
+      <div id="meta">
+        <div>Instanced Voxel · Three.js</div>
+        <div>Cold Dusk / Warm Lantern</div>
+      </div>
+    </div>
+
+    <div id="veil"><div class="veil-mark">浮屿正在显形</div></div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

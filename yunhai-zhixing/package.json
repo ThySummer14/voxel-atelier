@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "esbuild": "^0.25.10",
+    "playwright": "^1.56.1",
+    "three": "^0.180.0"
+  },
+  "name": "yunhai-zhixing",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --minify --format=iife --target=es2020 --outfile=bundle.js",
+    "dev": "esbuild src/main.js --bundle --format=iife --target=es2020 --outfile=bundle.js --watch",
+    "shot": "node tools/shoot.mjs"
+  }
+}

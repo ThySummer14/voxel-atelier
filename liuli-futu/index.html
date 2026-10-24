@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>琉璃浮屠 · The Porcelain Tower · 体素复原</title>
+<meta name="description" content="南京大报恩寺琉璃塔（永乐十年动工，宣德年间落成，1856 年毁，地面之上无存）的体素推想复原：64 万颗方块，八面九层，可环绕、可拨时辰、可看它自塔基逐格显形。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="琉璃浮屠 · 大报恩寺琉璃塔体素复原" />
+<meta property="og:description" content="一座什么都不剩的塔——只有文字记载和一幅十七世纪版画。用 64 万颗体素把它重新推想出来，每一格都是一次考据取舍。" />
+<meta property="og:image" content="https://porcelain-tower-fo1juvg3k1t.qoder.zone/og.png" />
+<meta property="og:url" content="https://porcelain-tower-fo1juvg3k1t.qoder.zone/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="./css/style.css" />
+<script type="importmap">
+  { "imports": { "three": "./assets/three.module.js", "three/addons/": "./assets/" } }
+</script>
+</head>
+<body>
+<canvas id="stage"></canvas>
+
+<div id="grain" aria-hidden="true"></div>
+<div id="vignette" aria-hidden="true"></div>
+
+<header id="brand">
+  <div class="kicker">VOXEL RESTITUTION · 南京 · 永乐十年—宣德年间</div>
+  <h1>琉 璃 浮 屠</h1>
+  <div class="sub">大报恩寺琉璃塔 · 八面九层 · 通高约七八十米</div>
+  <div class="tags"><span>白琉璃壁</span><i>·</i><span>五色琉璃</span><i>·</i><span>黄琉璃瓦</span><i>·</i><span>九层相轮</span></div>
+</header>
+
+<div id="chapter">
+  <div class="num"><span id="ch-num">01</span> / 06</div>
+  <h2 id="ch-title">浮屠</h2>
+  <p id="ch-body">。</p>
+</div>
+
+<nav id="chapters" aria-label="分镜"></nav>
+
+<div id="plaque">
+  <div class="row"><span class="k">参考物</span><span class="v">南京大报恩寺琉璃塔<br />中世纪世界七大奇迹之一 · 1856 年毁</span></div>
+  <div class="row"><span class="k">体素数</span><span class="v" id="st-vox">—</span></div>
+  <div class="row"><span class="k">面数</span><span class="v" id="st-face">—</span></div>
+  <div class="row"><span class="k">帧率</span><span class="v" id="st-fps">—</span></div>
+</div>
+
+<div id="dock">
+  <div class="ctl">
+    <label for="time">时辰</label>
+    <input id="time" type="range" min="0" max="1000" value="60" />
+    <span class="val" id="time-name">破晓</span>
+  </div>
+  <div class="btns">
+    <button id="btn-lamps" title="点亮万灯">万灯</button>
+    <button id="btn-reveal" title="自塔基重新显形">显形</button>
+    <button id="btn-rub" title="白描拓片">白描</button>
+    <button id="btn-spin" title="自动环绕">环视</button>
+    <button id="btn-shot" title="保存当前画面">存影</button>
+  </div>
+  <div class="hint">拖拽 · 环绕　滚轮 · 推拉　←→ · 换章　双击 · 归位</div>
+</div>
+
+<div id="loader">
+  <div class="lw">
+    <div class="lt">琉 璃 浮 屠</div>
+    <div class="lb"><i id="lbar"></i></div>
+    <div class="ls" id="lmsg">起 工 · 筑基</div>
+  </div>
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

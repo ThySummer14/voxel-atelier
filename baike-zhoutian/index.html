@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>百刻周天 · 水运仪象台</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0b1220; }
+  body { font-family: "Songti SC", "STSong", "SimSun", serif; user-select: none; }
+  #bg { position: fixed; inset: 0; z-index: 0; }
+  canvas { position: fixed; inset: 0; z-index: 1; display: block; }
+  #vignette { position: fixed; inset: 0; z-index: 2; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(4,8,18,0.55) 100%); }
+  #title { position: fixed; right: 22px; top: 18px; z-index: 5; writing-mode: vertical-rl;
+    color: #f2e6c8; letter-spacing: 0.35em; font-size: 26px; text-shadow: 0 0 14px rgba(0,0,0,0.6); }
+  #subtitle { position: fixed; right: 60px; top: 20px; z-index: 5; writing-mode: vertical-rl;
+    color: #cbb98a; letter-spacing: 0.3em; font-size: 13px; opacity: 0.9; }
+  #clock { position: fixed; left: 22px; top: 16px; z-index: 5; color: #f2e6c8; }
+  #clock .ke { font-size: 30px; letter-spacing: 0.12em; text-shadow: 0 0 12px rgba(0,0,0,0.7); }
+  #clock .sub { font-size: 12px; color: #b9a77d; margin-top: 2px; letter-spacing: 0.1em; }
+  #banner { position: fixed; left: 50%; top: 13%; transform: translateX(-50%); z-index: 6;
+    color: #ffe9b0; font-size: 21px; letter-spacing: 0.4em; opacity: 0; transition: opacity 0.5s;
+    text-shadow: 0 0 18px rgba(0,0,0,0.8); pointer-events: none; }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; gap: 8px;
+    align-items: center; padding: 10px 16px 12px; color: #d8c9a4; font-size: 13px;
+    background: linear-gradient(to top, rgba(6,10,20,0.82), rgba(6,10,20,0)); flex-wrap: wrap; }
+  .chip { border: 1px solid rgba(216,201,164,0.45); border-radius: 3px; padding: 3px 10px;
+    cursor: pointer; letter-spacing: 0.08em; }
+  .chip.on { background: rgba(216,201,164,0.22); color: #fff3d6; border-color: rgba(255,233,176,0.8); }
+  .sep { width: 1px; height: 18px; background: rgba(216,201,164,0.3); }
+  #kebar { position: fixed; left: 0; right: 0; bottom: 0; height: 3px; z-index: 6; pointer-events: none; }
+  #kebar .tick { position: absolute; top: 0; bottom: 0; width: 1%; background: rgba(216,201,164,0.18); }
+  #kebar .cur { position: absolute; top: -2px; bottom: -2px; width: 2px; background: #ffdf9e;
+    box-shadow: 0 0 8px rgba(255,223,158,0.9); }
+  #hint { position: fixed; left: 22px; bottom: 52px; z-index: 5; color: rgba(216,201,164,0.65);
+    font-size: 12px; letter-spacing: 0.1em; }
+  #intro { position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center;
+    background: rgba(5,8,16,0.72); transition: opacity 0.8s; color: #f2e6c8; }
+  #intro .card { max-width: 560px; padding: 34px 44px; text-align: center; line-height: 2.1;
+    background: rgba(10,14,26,0.9); border: 1px solid rgba(216,201,164,0.35); }
+  #intro h1 { font-size: 30px; letter-spacing: 0.5em; margin: 0 0 6px; font-weight: normal; }
+  #intro .st { font-size: 13px; color: #b9a77d; letter-spacing: 0.3em; margin-bottom: 16px; }
+  #intro p { font-size: 14.5px; color: #ded0ae; margin: 0; text-align: justify; }
+  #intro .go { margin-top: 20px; color: #ffe9b0; font-size: 13px; letter-spacing: 0.3em; }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<canvas id="cv"></canvas>
+<div id="vignette"></div>
+<div id="title">百刻周天</div>
+<div id="subtitle">水运仪象台 · 苏颂 元祐三年</div>
+<div id="clock"><div class="ke" id="keText">—</div><div class="sub" id="keSub"></div></div>
+<div id="banner"></div>
+<div id="kebar"></div>
+<div id="hint">拖拽环视 · 滚轮推近</div>
+<div id="bar"></div>
+<div id="intro"><div class="card">
+  <h1>百刻周天</h1>
+  <div class="st">水运仪象台 · 苏颂 元祐三年</div>
+  <p>北宋元祐三年，苏颂以水为械，集浑仪、浑象、枢轮、五层木阁于一台，是为人类第一座天文钟。此刻，它按你的真实时刻运转：枢轮一勺一勺地饮漏壶之水，天柱载着昼夜机轮缓缓一周，木人应刻而鸣。地上一球，天上一穹，同转同息。</p>
+  <div class="go">点 击 入 塔</div>
+</div></div>
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>

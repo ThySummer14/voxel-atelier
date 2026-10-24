@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>《神隐天阙》— 暮霭灵汤 · 千青万水</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <div id="veil">
+    <div class="veil-seal">神</div>
+    <div class="veil-title">神隐天阙</div>
+    <div class="veil-sub">千青万水 · 暮霭灵汤 · 海上列车</div>
+    <div class="veil-line"><i></i></div>
+  </div>
+
+  <header id="brand">
+    <span class="stamp">吉卜力体素风物</span>
+    <h1>神隐天阙</h1>
+    <p>The Celestial Bathhouse &middot; Spirited Realm</p>
+  </header>
+
+  <nav id="ui">
+    <div class="chip-group" id="views">
+      <button class="chip on" data-cam="0">全景</button>
+      <button class="chip" data-cam="1">红桥</button>
+      <button class="chip" data-cam="2">天阁</button>
+      <button class="chip" data-cam="3">车行</button>
+      <button class="chip" data-cam="4">俯瞰</button>
+    </div>
+    <div class="chip-group" id="phases">
+      <button class="chip on" data-phase="0">薄暮</button>
+      <button class="chip" data-phase="1">华灯</button>
+      <button class="chip" data-phase="2">晨曦</button>
+    </div>
+  </nav>
+
+  <footer id="hint">拖拽旋转 &middot; 滚轮缩放 &middot; 右键平移 &middot; 空格暂停</footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three.module.js",
+        "three/addons/": "./vendor/"
+      }
+    }
+  </script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

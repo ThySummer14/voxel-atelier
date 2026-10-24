@@ -1,0 +1,91 @@
+<!-- AI生成 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>北冥载山 · Voxel Epic</title>
+    <meta
+      name="description"
+      content="北冥有鱼，其名为鲲——巨鲲负山渡星海。一件可环绕凝视的体素神话雕塑。"
+    />
+    <link rel="icon" href="./favicon.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/three.module.js",
+          "three/addons/": "./assets/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+<p data-aigc-mark="1" style="margin:0 0 8px;font-size:10px;line-height:1.3;color:#6b6560;font-weight:400;">AI生成</p>
+
+    <div id="stage"></div>
+
+    <div id="hud">
+      <div id="brand">
+        <div class="kicker">Voxel Epic · 北冥 · 2026</div>
+        <h1>北冥载山</h1>
+        <div class="rule"></div>
+        <div class="tagline">巨鲲负山 · 星瀑坠渊 · 万灯渡夜</div>
+      </div>
+
+      <div id="meta">
+        <div>The Kun Bears the Mountain</div>
+        <div>Zhuangzi · Xiaoyao You</div>
+      </div>
+
+      <nav id="chapters" aria-label="章节">
+        <button class="chapter-btn is-active" data-ch="0">北冥</button>
+        <button class="chapter-btn" data-ch="1">载山</button>
+        <button class="chapter-btn" data-ch="2">万灯</button>
+        <button class="chapter-btn" data-ch="3">星瀑</button>
+      </nav>
+
+      <div id="narrative" class="is-show">
+        <div class="ch-index">01 / 04</div>
+        <h2>北冥</h2>
+        <p>
+          北冥有鱼，其名为鲲。它不急着化鹏，只把一座人间负在背上，缓缓航过星渊。
+        </p>
+      </div>
+
+      <div id="controls-tip">
+        拖动 · 环绕<br />
+        滚轮 · 换章 / 推拉<br />
+        点灯 · 脉冲<br />
+        双击 · 归位
+      </div>
+
+      <div id="footer-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <div id="veil"><div class="veil-mark">鲲将显形</div></div>
+    <div id="cursor-ring"></div>
+
+    <script type="module" src="./js/main.js"></script>
+    <script>
+      (function () {
+        const ring = document.getElementById("cursor-ring");
+        let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
+        addEventListener("pointermove", (e) => {
+          tx = e.clientX;
+          ty = e.clientY;
+        });
+        (function loop() {
+          x += (tx - x) * 0.22;
+          y += (ty - y) * 0.22;
+          ring.style.left = x + "px";
+          ring.style.top = y + "px";
+          requestAnimationFrame(loop);
+        })();
+      })();
+    </script>
+  </body>
+</html>

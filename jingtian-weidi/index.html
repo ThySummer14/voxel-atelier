@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>经天纬地 · 花楼提花机的体素转译</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage"></div>
+
+<div id="loading">
+  <div class="pan">
+    <h1>经天纬地</h1>
+    <p class="sub">花楼提花机 · 体素转译</p>
+    <div class="bar"><i id="lbar"></i></div>
+    <p id="lmsg">正在凿木伐丝…</p>
+  </div>
+</div>
+
+<header id="hud">
+  <div class="title">
+    <h1>经天纬地<span>体素 · 花楼提花机</span></h1>
+  </div>
+  <div class="status">
+    <div class="row"><b id="sPattern">团花宝相</b><span id="sPick">第 0 / 42 纬</span></div>
+    <div class="bar big"><i id="sBar"></i></div>
+    <div class="row small"><span id="sPhase">停机</span><span id="sStat">— fps</span></div>
+  </div>
+</header>
+
+<nav id="cam">
+  <button data-cam="cover">全景</button>
+  <button data-cam="fell">织口</button>
+  <button data-cam="tape">花本</button>
+  <button data-cam="tower">花楼</button>
+  <button data-cam="rack">晾锦</button>
+  <button data-cam="side">侧视</button>
+</nav>
+
+<div id="panel">
+  <div class="grp">
+    <button id="bPlay" class="primary">开织</button>
+    <button id="bFast">整匹快进</button>
+    <button id="bNext">换花本</button>
+  </div>
+  <div class="grp">
+    <span class="lab">速度</span>
+    <button class="spd" data-spd="0.5">×½</button>
+    <button class="spd on" data-spd="1">×1</button>
+    <button class="spd" data-spd="2">×2</button>
+    <button class="spd" data-spd="4">×4</button>
+  </div>
+  <div class="grp">
+    <button id="bFrame" class="tg">去机架</button>
+    <button id="bCord" class="tg">隐线束</button>
+    <button id="bLamp" class="tg">熄灯</button>
+    <button id="bSound" class="tg">声音</button>
+  </div>
+</div>
+
+<div id="note">
+  <p><b>花本即程序</b>：带上每一张打的孔，就是这一纬要提起的经线。孔亮了、经线抬起、彩梭穿过去，织出来的锦便与花本一一对应。</p>
+  <p class="hint">拖动旋转 · 滚轮远近 · 点织机开织/停织 · 点花本带换本</p>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

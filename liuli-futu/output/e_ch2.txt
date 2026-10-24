@@ -1,0 +1,1 @@
+shot output/f_ch2.png in 10.6s  gl=metal

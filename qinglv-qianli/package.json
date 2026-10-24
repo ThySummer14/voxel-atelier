@@ -1,0 +1,14 @@
+{
+  "name": "qinglv-qianli",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node .serve.cjs",
+    "test": "npm run test:node",
+    "test:node": "node --test tools/geometry.test.mjs",
+    "accept:node": "node tools/accept-node.mjs",
+    "measure": "node tools/measure.mjs",
+    "accept:browser": "python3 tools/serve-and-accept.py",
+    "shots": "python3 tools/shot.py"
+  }
+}

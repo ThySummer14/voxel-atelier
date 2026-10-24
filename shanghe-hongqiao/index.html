@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上河虹桥 · 体素清明上河图</title>
+<meta name="description" content="清明上河图「虹桥段」的体素转译——暖阳午后，漕船正过虹桥。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="stage"></canvas>
+
+<div id="veil">
+  <div class="veil-title">上河虹桥</div>
+  <div class="veil-sub">清明上河图 · 虹桥段 · 体素转译</div>
+  <div class="veil-line"><i></i></div>
+</div>
+
+<header id="brand">
+  <h1>上河虹桥</h1>
+  <p>THE RAINBOW BRIDGE · 体素 · 汴河漕船过桥处</p>
+</header>
+
+<nav id="ui">
+  <div class="chip-group" role="group" aria-label="机位">
+    <button class="chip view-btn on">全景</button>
+    <button class="chip view-btn">桥心</button>
+    <button class="chip view-btn">船头</button>
+  </div>
+  <div class="chip-group" role="group" aria-label="时相">
+    <button class="chip phase-btn on">午后</button>
+    <button class="chip phase-btn">薄暮</button>
+    <button class="chip phase-btn">华灯</button>
+    <button class="chip" id="tourBtn" title="自动巡时">巡时</button>
+  </div>
+</nav>
+
+<footer id="hint">拖拽环视 · 滚轮推拉 · 双击回全景 · 数字键 1/2/3 换机位</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

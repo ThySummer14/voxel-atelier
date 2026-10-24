@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>晚照盐田 · 体素作品</title>
+<style>
+  :root{
+    --ink:#f3e9dc; --ink-dim:#c3b3a3; --line:rgba(243,233,220,.22);
+    --panel:rgba(24,17,26,.42); --hot:#e88a4a; --seal:#c0392b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;background:#160f1c}
+  body{
+    font:13px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft Yahei",sans-serif;
+    color:var(--ink); -webkit-font-smoothing:antialiased;
+  }
+  #app{position:fixed;inset:0}
+  #app canvas{display:block;cursor:grab}
+  #app canvas:active{cursor:grabbing}
+
+  /* 暗角 */
+  #vig{position:fixed;inset:0;pointer-events:none;z-index:2;
+    background:radial-gradient(ellipse 120% 90% at 50% 45%,transparent 42%,rgba(20,10,20,.34) 100%);}
+
+  .ui{position:fixed;z-index:5;transition:opacity .35s,transform .35s}
+  body.bare .ui{opacity:0;transform:translateY(6px);pointer-events:none}
+
+  /* 标题 */
+  #title{top:30px;left:34px;max-width:46vw}
+  #title h1{font:400 40px/1.05 "Songti SC","STSong","SimSun",serif;letter-spacing:.14em;
+    text-shadow:0 2px 18px rgba(0,0,0,.55)}
+  #title .en{font-size:10px;letter-spacing:.42em;color:var(--ink-dim);margin-top:10px;text-transform:uppercase}
+  #title .rule{width:52px;height:1px;background:var(--line);margin:12px 0 10px}
+  #title p{font-size:12.5px;color:var(--ink-dim);letter-spacing:.04em;max-width:30em}
+  #seal{display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;background:var(--seal);color:#fff;font:400 15px/1 "Songti SC",serif;
+    border-radius:2px;margin-left:10px;vertical-align:-6px;opacity:.92;
+    box-shadow:0 2px 10px rgba(192,57,43,.4)}
+
+  /* 控制面板 */
+  #panel{left:34px;bottom:30px;background:var(--panel);backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:3px;padding:16px 18px 14px;width:284px}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .lbl{font-size:10.5px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase}
+  .val{font-size:11.5px;color:var(--ink);letter-spacing:.08em}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;margin:12px 0 4px;
+    background:linear-gradient(90deg,var(--hot),#7a5aa8);border-radius:2px;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;
+    background:#f6ecdd;border:1px solid rgba(0,0,0,.3);box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#f6ecdd;border:none;cursor:pointer}
+  .ticks{display:flex;justify-content:space-between;font-size:9.5px;color:rgba(195,179,163,.6);letter-spacing:.1em;margin-top:2px}
+  .btns{display:flex;gap:6px;margin-top:14px}
+  button{font:inherit;color:var(--ink-dim);background:transparent;border:1px solid var(--line);
+    border-radius:2px;padding:6px 9px;cursor:pointer;transition:.22s;letter-spacing:.06em;flex:1}
+  button:hover{color:var(--ink);border-color:rgba(243,233,220,.5);background:rgba(243,233,220,.07)}
+  button.on{color:#1b1220;background:var(--ink);border-color:var(--ink)}
+  .btns2{margin-top:7px}
+
+  /* 信息 */
+  #meta{right:34px;bottom:30px;text-align:right;font-size:11px;color:var(--ink-dim);letter-spacing:.1em;
+    line-height:1.9;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  #meta b{color:var(--ink);font-weight:500}
+  #tip{right:34px;top:32px;text-align:right;font-size:11px;color:var(--ink-dim);letter-spacing:.12em;
+    line-height:2;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  #tip kbd{font:inherit;border:1px solid var(--line);border-radius:2px;padding:0 4px;color:var(--ink)}
+
+  /* 加载 */
+  #loader{position:fixed;inset:0;z-index:20;background:#160f1c;display:flex;
+    flex-direction:column;align-items:center;justify-content:center;gap:18px;
+    transition:opacity .6s}
+  #loader.gone{opacity:0;pointer-events:none}
+  #loader h2{font:400 26px/1 "Songti SC","STSong",serif;letter-spacing:.34em;text-indent:.34em}
+  #track{width:230px;height:1px;background:rgba(243,233,220,.18)}
+  #bar{height:100%;width:0;background:var(--hot);transition:width .25s}
+  #loadertxt{font-size:11px;letter-spacing:.2em;color:var(--ink-dim)}
+
+  @media (max-width:760px){
+    #title h1{font-size:28px}#title{top:20px;left:20px}#panel{left:20px;right:20px;bottom:20px;width:auto}
+    #meta,#tip{display:none}
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="vig"></div>
+
+<div class="ui" id="title">
+  <h1>晚照盐田<span id="seal">盐</span></h1>
+  <div class="rule"></div>
+  <div class="en">Salt Panks at Sundown</div>
+  <p>退潮后的海岸盐场。池水按盐度泛出薄荷、珊瑚与玫红；风车水轮把海水提上最高一级，渔村次第亮灯，夕阳沉进海平线。</p>
+</div>
+
+<div class="ui" id="tip">
+  拖拽旋转 · 滚轮缩放<br>
+  <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 切换机位 · <kbd>空格</kbd> 暂停 · <kbd>H</kbd> 隐藏界面
+</div>
+
+<div class="ui" id="panel">
+  <div class="row"><span class="lbl">暮色</span><span class="val" id="moodval">落日</span></div>
+  <input type="range" id="mood" min="0" max="1" step="0.01" value="0.5">
+  <div class="ticks"><span>日落前</span><span>落日</span><span>蓝调</span></div>
+  <div class="btns">
+    <button data-view="all" class="on">全景</button>
+    <button data-view="pans">盐田</button>
+    <button data-view="village">渔村</button>
+    <button data-view="sun">日落</button>
+  </div>
+  <div class="btns btns2">
+    <button id="spin">自动环绕</button>
+    <button id="pause">暂停动画</button>
+    <button id="shot">存图</button>
+    <button id="hide">净屏</button>
+  </div>
+</div>
+
+<div class="ui" id="meta">
+  体素 <b id="vox">—</b> · 面 <b id="facets">—</b> · <b id="fps">—</b> fps
+</div>
+
+<div id="loader">
+  <h2>晚照盐田</h2>
+  <div id="track"><div id="bar"></div></div>
+  <div id="loadertxt">正在生成体素世界…</div>
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

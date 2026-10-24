@@ -1,0 +1,2 @@
+fps: 60
+shot output/live_check.png in 18.8s  gl=metal

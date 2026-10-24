@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10252b">
+  <title>潮汐之山 · Mont-Saint-Michel</title>
+  <meta name="description" content="一座随潮汐与昼夜呼吸的体素圣米歇尔山。可交互的实时三维藏品。">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main id="experience" aria-label="潮汐之山交互体素作品">
+    <canvas id="scene" aria-label="圣米歇尔山三维场景，可拖拽环视并滚轮缩放"></canvas>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="masthead ui">
+      <a class="brand" href="#" aria-label="回到全景">
+        <span class="brand-mark">M</span>
+        <span>微小纪元<small>MINIATURE ATLAS · N° 014</small></span>
+      </a>
+      <div class="header-actions">
+        <span class="live"><i></i> 实时模拟</span>
+        <button id="tourButton" class="text-button">开始导览 <span>↗</span></button>
+        <button id="captureButton" class="icon-button" aria-label="保存作品画面" title="保存画面">⌑</button>
+        <button id="hideButton" class="icon-button" aria-label="隐藏界面" title="隐藏界面 (H)">◫</button>
+      </div>
+    </header>
+
+    <section class="title-block ui" aria-labelledby="workTitle">
+      <div class="eyebrow"><span>48°38′10″N</span><i></i><span>01°30′41″W</span></div>
+      <h1 id="workTitle">潮汐<br>之山</h1>
+      <div class="latin">MONT—SAINT—MICHEL</div>
+      <p>在海与陆地之间，<br>时间垒起一座信仰的城。</p>
+      <div class="edition">VOXEL STUDY <span>／</span> 2026</div>
+    </section>
+
+    <aside class="field-notes ui" aria-label="藏品实时信息">
+      <div class="panel-heading"><span>现场观测</span><small>LIVE CONDITIONS</small></div>
+      <div class="tide-instrument">
+        <svg viewBox="0 0 140 140" role="img" aria-label="实时潮位仪表">
+          <circle class="dial-track" cx="70" cy="70" r="57"></circle>
+          <circle id="tideArc" class="dial-value" cx="70" cy="70" r="57"></circle>
+          <path d="M70 4v9M70 127v9M4 70h9M127 70h9" class="dial-ticks"></path>
+        </svg>
+        <div class="tide-readout"><strong id="tideHeight">+3.2</strong><span>相对潮位 · M</span></div>
+      </div>
+      <div class="condition"><span>潮汐状态</span><strong id="tideState">涨潮</strong></div>
+      <div class="condition"><span>栈桥通行</span><strong id="causewayState">淹没</strong></div>
+      <div class="condition"><span>模拟时刻</span><strong id="clock">17:24</strong></div>
+      <div class="mini-rule"></div>
+      <p id="fieldNote">涨潮时，海湾将山城轻轻托起。M2 分潮以 12 小时 25 分为周期，每一次涨落都真实发生。</p>
+      <button id="noteButton" class="note-link">阅读藏品笔记 <span>＋</span></button>
+    </aside>
+
+    <div id="hotspots" class="hotspots ui" aria-label="建筑地标">
+      <button data-landmark="abbey" class="hotspot"><i></i><span>01</span> 修道院</button>
+      <button data-landmark="marvel" class="hotspot"><i></i><span>02</span> 奇迹楼</button>
+      <button data-landmark="ramparts" class="hotspot"><i></i><span>03</span> 城墙</button>
+    </div>
+
+    <div class="view-switcher ui" role="group" aria-label="观察视角">
+      <button class="active" data-view="overview">全景</button>
+      <button data-view="abbey">修道院</button>
+      <button data-view="ramparts">城墙</button>
+      <button data-view="aerial">鸟瞰</button>
+    </div>
+
+    <footer class="control-dock ui">
+      <div class="transport">
+        <button id="playButton" class="play" aria-label="暂停模拟">Ⅱ</button>
+        <div class="time-label"><strong id="dayPhase">薄暮</strong><span>光影时间</span></div>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-labels"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+        <input id="timeSlider" type="range" min="0" max="24" step="0.01" value="17.4" aria-label="一天中的时刻">
+        <div class="timeline-marks"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="tide-presets" role="group" aria-label="潮汐预设">
+        <button data-tide="low">低潮</button>
+        <button data-tide="high">高潮</button>
+      </div>
+      <button id="soundButton" class="sound" aria-label="开启海湾环境声" aria-pressed="false"><span>♪</span> 环境声</button>
+    </footer>
+
+    <div class="gesture-hint ui"><span>拖拽环视</span><i>·</i><span>滚轮推近</span><i>·</i><span>空格暂停</span></div>
+    <button id="restoreButton" class="restore-button" aria-label="显示界面">显示界面 · H</button>
+    <div id="toast" class="toast" role="status"></div>
+
+    <section id="storyPanel" class="story-panel" aria-hidden="true" aria-label="藏品笔记">
+      <button id="closeStory" class="story-close" aria-label="关闭藏品笔记">×</button>
+      <div class="story-index">FIELD NOTES / 014</div>
+      <p class="story-kicker">诺曼底 · 法国</p>
+      <h2>一座山，<br>两次成为岛屿。</h2>
+      <p>公元八世纪，人们在花岗岩孤山上建起第一座圣堂。此后的八个世纪里，罗曼式中殿、哥特式合唱席与奇迹楼层层叠加，村庄则沿着山腰向下生长。</p>
+      <p>这里没有一块背景贴图。岩层、屋瓦、扶壁与窗火都由方块构成；海湾使用 M2 分潮周期推演，昼夜则驱动太阳、雾气、天空与万家灯火。</p>
+      <dl><div><dt>建造</dt><dd>8—16 世纪</dd></div><div><dt>分潮周期</dt><dd>12 h 25 m</dd></div><div><dt>体素数量</dt><dd id="voxelCount">—</dd></div><div><dt>遗产登录</dt><dd>1979</dd></div></dl>
+      <div class="story-quote">“在山与海的边界，<br>建筑成为时间的刻度。”</div>
+    </section>
+
+    <section id="tourCaption" class="tour-caption" aria-live="polite">
+      <span id="tourNumber">01 / 04</span><h2 id="tourTitle">海上的秩序</h2><p id="tourText">山体、村庄与修道院，沿着同一条垂直轴线生长。</p>
+    </section>
+
+    <div id="loading" class="loading">
+      <div class="loading-emblem">M</div>
+      <div class="loading-title">潮汐之山</div>
+      <div class="loading-line"><i></i></div>
+      <div class="loading-sub">正在垒起岩层与屋瓦</div>
+    </div>
+    <div id="error" class="error" hidden>此作品需要支持 WebGL 的浏览器。请开启硬件加速后重新打开。</div>
+  </main>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

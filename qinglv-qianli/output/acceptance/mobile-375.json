@@ -1,0 +1,48 @@
+{
+  "out": "output/acceptance/mobile-375.png",
+  "url": "http://127.0.0.1:8913/index.html?quality=eco",
+  "gl": "metal",
+  "viewport": {
+    "width": 375,
+    "height": 667,
+    "dpr": 1
+  },
+  "dpr": 1,
+  "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+  },
+  "stats": {
+    "calls": 30,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 0.8,
+    "quality": "eco",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1738,
+    "heapMB": 169
+  },
+  "chapter": 1,
+  "time": "160",
+  "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/output/acceptance/mobile-375.png",
+  "fpsSamples": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+  ],
+  "fpsMedian": 60.0,
+  "elapsedSec": 17.88,
+  "consoleErrorWarning": [],
+  "pass": true
+}

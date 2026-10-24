@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "three": "^0.160.1"
+  },
+  "type": "module",
+  "scripts": {
+    "serve": "node tools/serve.cjs",
+    "raster": "node tools/raster.mjs",
+    "accept": "node tools/accept-node.mjs"
+  }
+}

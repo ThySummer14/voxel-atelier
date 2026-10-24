@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN" id="top">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>体素工坊 · VOXEL ATELIER</title>
+<meta name="description" content="体素工坊：2026 年秋季的 23 件实时体素作品。山水、楼阁、机械与时间，同一个命题，不同模型的答卷。">
+<meta name="theme-color" content="#f1ece1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="体素工坊 · VOXEL ATELIER">
+<meta property="og:description" content="23 件实时体素作品：山水、楼阁、机械与时间。">
+<meta property="og:image" content="https://thysummer14.github.io/voxel-atelier/assets/og.jpg">
+<meta property="og:url" content="https://thysummer14.github.io/voxel-atelier/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="./assets/covers/qinglv-qianli.jpg" imagesrcset="./assets/covers/qinglv-qianli@800.jpg 800w, ./assets/covers/qinglv-qianli.jpg 1600w" imagesizes="(max-width:900px) 76vw, 34vw">
+<link rel="stylesheet" href="./assets/css/gallery.css">
+</head>
+<body>
+<a class="skip" href="#works">跳到作品</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top" aria-label="体素工坊首页">
+      <span class="brand-seal" aria-hidden="true">素</span>
+      <span class="brand-text">
+        <span class="brand-name">体素工坊</span>
+        <span class="brand-en">Voxel Atelier · 2026</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#works">作品 <span class="nav-count" id="nav-count">23</span></a>
+      <a class="nav-about" href="#about">关于</a>
+      <a href="https://github.com/ThySummer14/voxel-atelier" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">2026 秋季合辑 · 23 件实时体素</p>
+        <h1 id="hero-title"><span class="line">把世界</span><span class="line">堆成方块<span class="red">。</span></span></h1>
+        <p class="lede">同一个命题，不同的模型。23 件体素作品，从千里江山到一枚会走时的陀飞轮，全部可以亲手转动、亲眼查看。</p>
+        <div class="hero-actions">
+          <a class="btn" href="#works"><span>进入展厅</span><span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="https://github.com/ThySummer14/voxel-atelier" target="_blank" rel="noopener"><span>查看源码</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-stats" aria-label="合集概览">
+          <div class="hero-stat"><b id="stat-works">23</b><span>件作品</span></div>
+          <div class="hero-stat"><b id="stat-models">10</b><span>个标注模型</span></div>
+          <div class="hero-stat"><b>05</b><span>类题材</span></div>
+        </div>
+      </div>
+
+      <div class="hero-stack" aria-label="精选作品">
+        <figure class="plate plate-a">
+          <a href="./qinglv-qianli/" target="_blank" rel="noopener" aria-label="进入《青绿千里》">
+            <img src="./assets/covers/qinglv-qianli.jpg"
+                 srcset="./assets/covers/qinglv-qianli@800.jpg 800w, ./assets/covers/qinglv-qianli.jpg 1600w"
+                 sizes="(max-width:900px) 76vw, 40vw" width="1600" height="1000"
+                 alt="青绿千里：青绿山水的体素长卷" fetchpriority="high">
+          </a>
+          <figcaption><b>青绿千里</b><span>山水 · 2026.09</span></figcaption>
+        </figure>
+        <figure class="plate plate-b">
+          <a href="./chaoxi-shengshan/" target="_blank" rel="noopener" aria-label="进入《潮汐之山》">
+            <img src="./assets/covers/chaoxi-shengshan.jpg"
+                 srcset="./assets/covers/chaoxi-shengshan@800.jpg 800w, ./assets/covers/chaoxi-shengshan.jpg 1600w"
+                 sizes="(max-width:900px) 76vw, 32vw" width="1600" height="1000"
+                 alt="潮汐之山：海水中的圣米歇尔山体素模型">
+          </a>
+          <figcaption><b>潮汐之山</b><span>建筑 · 2026.10</span></figcaption>
+        </figure>
+        <figure class="plate plate-c">
+          <a href="./jixin/" target="_blank" rel="noopener" aria-label="进入《机心》">
+            <img src="./assets/covers/jixin.jpg"
+                 srcset="./assets/covers/jixin@800.jpg 800w, ./assets/covers/jixin.jpg 1600w"
+                 sizes="(max-width:900px) 76vw, 24vw" width="1600" height="1000"
+                 alt="机心：镂空陀飞轮腕表的体素机芯">
+          </a>
+          <figcaption><b>机心</b><span>机械 · 2026.09</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+  <div class="ticker" aria-label="参与模型">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <span><i>23</i> 件作品</span>
+        <span>Qwen 3.8 Flash</span>
+        <span>Qwen 3.8 Max</span>
+        <span>DeepSeek V4.1 Flash</span>
+        <span>Gemini 3.8 Flash</span>
+        <span>Gemini 4 Argon</span>
+        <span>Kimi K3.1 Pro</span>
+        <span>GLM 5.3</span>
+        <span>LongCat 2.5 Pre</span>
+        <span>Dot</span>
+        <span>Space Bunny Alpha</span>
+        <span><i>2026</i> 秋季</span>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        <span><i>23</i> 件作品</span>
+        <span>Qwen 3.8 Flash</span>
+        <span>Qwen 3.8 Max</span>
+        <span>DeepSeek V4.1 Flash</span>
+        <span>Gemini 3.8 Flash</span>
+        <span>Gemini 4 Argon</span>
+        <span>Kimi K3.1 Pro</span>
+        <span>GLM 5.3</span>
+        <span>LongCat 2.5 Pre</span>
+        <span>Dot</span>
+        <span>Space Bunny Alpha</span>
+        <span><i>2026</i> 秋季</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-inner">
+      <p class="kicker">关于工坊 / About</p>
+      <div class="about-grid">
+        <h2 id="about-title">同一个命题，<br>不同的答卷。</h2>
+        <div>
+          <blockquote class="about-quote">做一件你认为十分完美的体素作品。参考物自选，禁止参考同级其他作品。</blockquote>
+          <div class="about-prose">
+            <p>2026 年秋天，这个题目被反复交给不同的模型。有人选择山水长卷，有人造一台会报时的仪象台，有人把一枚陀飞轮拆到每一颗体素。</p>
+            <p>这里收着全部答卷。它们不是同一个模板的变体：每件作品都有自己的世界、交互与验收记录，也都是可独立打开的静态页面。</p>
+            <p>建议使用桌面浏览器观看。除《上元灯市》为离线静帧外，其余作品均为实时 WebGL，可直接拖拽、滚轮与点击。</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat"><b>23</b><span>件作品</span></div>
+        <div class="about-stat"><b>10</b><span>个标注模型</span></div>
+        <div class="about-stat"><b>05</b><span>类题材</span></div>
+        <div class="about-stat"><b id="stat-range">2026.09—10</b><span>创作跨度</span></div>
+      </div>
+      <p class="about-note">部分早期作品未记录生成模型，卡片以「模型未标注」显示；模型名取自作品目录与交付文档。</p>
+    </div>
+  </section>
+
+  <section class="works" id="works" aria-labelledby="works-title">
+    <div class="section-head">
+      <div>
+        <p class="kicker">展厅 / Archive</p>
+        <h2 id="works-title">全部作品 <sup id="work-count">23</sup></h2>
+      </div>
+      <p class="section-side"><b>点击卡片</b>在新标签页进入作品。<br>编号为展厅序号，不代表创作次序。</p>
+    </div>
+
+    <div class="filters" aria-label="作品筛选">
+      <div class="filter-row">
+        <span class="filter-label">题材</span>
+        <div class="chips" id="catFilters"></div>
+        <span class="filter-count" id="filterCount">23 / 23</span>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">模型</span>
+        <div class="chips" id="modelFilters"></div>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty">没有符合条件的作品。</p>
+    <noscript><p class="empty show">请启用 JavaScript 浏览作品列表。</p></noscript>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <p class="footer-word">体素工坊<span>VOXEL ATELIER</span></p>
+      <div class="footer-links">
+        <a href="#works">作品</a>
+        <a href="#about">关于</a>
+        <a href="https://github.com/ThySummer14/voxel-atelier" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="#top">回到顶部 ↑</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>一个持续生长的体素测试合集 · 2026</span>
+      <span>静态站点 · GitHub Pages · 作品内附设计说明与验收记录</span>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/works.js"></script>
+<script src="./assets/js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+[
+ {
+  "shot": "01_cover",
+  "time": 43000,
+  "cam": "cover",
+  "file": "renders/01_cover.png",
+  "simT": 43001.450000000055,
+  "speed": 1,
+  "fill": 4,
+  "step": 35,
+  "doors": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "02_youzheng",
+  "time": 64802,
+  "cam": "cover",
+  "file": "renders/02_youzheng.png",
+  "simT": 65666.44809999982,
+  "speed": 1,
+  "fill": 3,
+  "step": 54,
+  "doors": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "03_night",
+  "time": 76000,
+  "cam": "night",
+  "file": "renders/03_night.png",
+  "simT": 76001.40179999982,
+  "speed": 1,
+  "fill": 1,
+  "step": 63,
+  "doors": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "04_wheel",
+  "time": 43200,
+  "cam": "wheel",
+  "file": "renders/04_wheel.png",
+  "simT": 43201.41830000005,
+  "speed": 1,
+  "fill": 0,
+  "step": 36,
+  "doors": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "05_tianhen",
+  "time": 43170,
+  "cam": "wheel",
+  "file": "renders/05_tianhen.png",
+  "simT": 43171.41840000008,
+  "speed": 1,
+  "fill": 4,
+  "step": 35,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "06_globe",
+  "time": 43000,
+  "cam": "globe",
+  "file": "renders/06_globe.png",
+  "simT": 43001.43420000007,
+  "speed": 1,
+  "fill": 4,
+  "step": 35,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "07_arm",
+  "time": 43000,
+  "cam": "arm",
+  "file": "renders/07_arm.png",
+  "simT": 43001.43330000006,
+  "speed": 1,
+  "fill": 4,
+  "step": 35,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "08_tube",
+  "time": 76000,
+  "cam": "tube",
+  "file": "renders/08_tube.png",
+  "simT": 76001.39999999979,
+  "speed": 1,
+  "fill": 1,
+  "step": 63,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "09_water",
+  "time": 43000,
+  "cam": "east",
+  "file": "renders/09_water.png",
+  "simT": 43001.43520000003,
+  "speed": 1,
+  "fill": 4,
+  "step": 35,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "10_dawn",
+  "time": 21602,
+  "cam": "cover",
+  "file": "renders/10_dawn.png",
+  "simT": 22466.432899999978,
+  "speed": 1,
+  "fill": 3,
+  "step": 18,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "11_sealed",
+  "time": 43000,
+  "cam": "wide",
+  "file": "renders/11_sealed.png",
+  "simT": 43001.55030000006,
+  "speed": 1,
+  "fill": 4,
+  "step": 35,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "shot": "12_golden",
+  "time": 63000,
+  "cam": "cover",
+  "file": "renders/12_golden.png",
+  "simT": 63001.533300000054,
+  "speed": 1,
+  "fill": 2,
+  "step": 52,
+  "doors": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sliders": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ }
+]

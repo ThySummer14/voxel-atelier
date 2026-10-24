@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>浮空千机书院 · The Floating Clockwork Academy | Voxel Masterpiece</title>
+  <style>
+    :root {
+      --bg-deep: #090d16;
+      --glass-bg: rgba(14, 20, 34, 0.76);
+      --glass-border: rgba(220, 178, 92, 0.32);
+      --gold-primary: #efc068;
+      --gold-bright: #ffe6a3;
+      --cyan-spirit: #38e4f8;
+      --text-main: #f3EFE6;
+      --text-muted: #9ba8be;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg-deep);
+      font-family: "Songti SC", "STSong", "Noto Serif SC", "PingFang SC", serif;
+      color: var(--text-main);
+    }
+    #canvas-container {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    /* Subtle Chinese Golden Frame & Vignette Overlay */
+    .vignette-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 50%, transparent 58%, rgba(4, 8, 16, 0.65) 100%);
+      box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.75);
+    }
+    .ornate-border {
+      position: absolute;
+      inset: 14px;
+      pointer-events: none;
+      z-index: 3;
+      border: 1px solid rgba(239, 192, 104, 0.22);
+    }
+    .ornate-border::before, .ornate-border::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--gold-primary);
+    }
+    .ornate-border::before {
+      top: -1px;
+      left: -1px;
+      border-right: none;
+      border-bottom: none;
+    }
+    .ornate-border::after {
+      bottom: -1px;
+      right: -1px;
+      border-left: none;
+      border-top: none;
+    }
+
+    /* Top Left Header Plaque */
+    .header-plaque {
+      position: absolute;
+      top: 28px;
+      left: 32px;
+      z-index: 10;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-left: 3px solid var(--gold-primary);
+      padding: 16px 22px;
+      border-radius: 6px;
+      max-width: 390px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .seal-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: #b82925;
+      color: #fff6e8;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 214, 153, 0.5);
+      box-shadow: 0 0 10px rgba(212, 48, 42, 0.5);
+      flex-shrink: 0;
+    }
+    .header-plaque h1 {
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--gold-bright);
+      font-weight: 600;
+      text-shadow: 0 2px 10px rgba(239, 192, 104, 0.3);
+    }
+    .subtitle {
+      font-size: 12px;
+      color: var(--cyan-spirit);
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+    }
+    .lore-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #d5dce8;
+      margin-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 8px;
+    }
+    .stats-bar {
+      display: flex;
+      gap: 14px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: monospace;
+    }
+    .stats-bar span strong {
+      color: var(--gold-primary);
+    }
+
+    /* Right Side Control Panel */
+    .control-panel {
+      position: absolute;
+      top: 28px;
+      right: 32px;
+      z-index: 10;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      padding: 16px 18px;
+      border-radius: 6px;
+      width: 285px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    }
+    .panel-section {
+      margin-bottom: 14px;
+    }
+    .panel-section:last-child {
+      margin-bottom: 0;
+    }
+    .section-label {
+      font-size: 12px;
+      color: var(--gold-primary);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+    .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+    .btn-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    button.ctrl-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(239, 192, 104, 0.24);
+      color: #e2e8f0;
+      padding: 7px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+    button.ctrl-btn:hover {
+      background: rgba(239, 192, 104, 0.18);
+      border-color: var(--gold-primary);
+      color: #ffffff;
+    }
+    button.ctrl-btn.active {
+      background: linear-gradient(135deg, rgba(218, 158, 52, 0.38), rgba(44, 158, 178, 0.32));
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+      font-weight: 600;
+      box-shadow: 0 0 12px rgba(239, 192, 104, 0.25);
+    }
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    input[type="range"] {
+      flex: 1;
+      accent-color: var(--gold-primary);
+      cursor: pointer;
+      height: 4px;
+    }
+
+    /* Bottom Camera Bookmarks & Inspector Bar */
+    .bottom-bar {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: opacity 0.35s ease;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    }
+    .cam-pill {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #cbd5e1;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .cam-pill:hover {
+      color: var(--gold-bright);
+      border-color: rgba(239, 192, 104, 0.35);
+      background: rgba(239, 192, 104, 0.1);
+    }
+    .cam-pill.active {
+      background: rgba(239, 192, 104, 0.24);
+      border-color: var(--gold-primary);
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+
+    /* Voxel Hover Inspector Tooltip */
+    .inspector-badge {
+      position: absolute;
+      bottom: 28px;
+      left: 32px;
+      z-index: 10;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: monospace;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* Clean UI Mode */
+    body.ui-hidden .header-plaque,
+    body.ui-hidden .control-panel,
+    body.ui-hidden .bottom-bar,
+    body.ui-hidden .inspector-badge {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .toggle-ui-fab {
+      position: absolute;
+      bottom: 28px;
+      right: 32px;
+      z-index: 20;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--gold-primary);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .toggle-ui-fab:hover {
+      background: rgba(239, 192, 104, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div class="vignette-overlay"></div>
+  <div class="ornate-border"></div>
+
+  <!-- Top Left Artistic Plaque -->
+  <div class="header-plaque">
+    <div class="title-row">
+      <span class="seal-badge">天工</span>
+      <h1>浮空千机书院</h1>
+    </div>
+    <div class="subtitle">The Floating Clockwork Academy · Voxel Sanctuary</div>
+    <p class="lore-desc">
+      悬于九霄云海之上的东方机关圣殿。底层地脉以太晶簇驱动双层逆旋黄铜齿轮组；中层汉白玉须弥座承托三层八角琉璃藏书阁，飞瀑激起灵雾推动水轮；穹顶九重浑天仪随星辰流转不息。
+    </p>
+    <div class="stats-bar">
+      <span>体素规模: <strong id="stat-voxels">51,230</strong></span>
+      <span>网格: <strong>126³</strong></span>
+      <span>材质: <strong>64色PBR</strong></span>
+    </div>
+  </div>
+
+  <!-- Top Right Interactive Controls -->
+  <div class="control-panel">
+    <div class="panel-section">
+      <div class="section-label">
+        <span>天象时辰 · Atmosphere</span>
+        <span id="time-label" style="color:#38e4f8;font-weight:normal;">星夜流萤</span>
+      </div>
+      <div class="btn-grid-3">
+        <button class="ctrl-btn active" data-preset="starlight">星夜流萤</button>
+        <button class="ctrl-btn" data-preset="sunset">暮云鎏金</button>
+        <button class="ctrl-btn" data-preset="dawn">蓬莱晨曦</button>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="section-label">
+        <span>千机运转 · Clockwork & Cutaway</span>
+      </div>
+      <div class="btn-grid">
+        <button class="ctrl-btn active" id="btn-animate">⚙️ 机关运转: 开</button>
+        <button class="ctrl-btn active" id="btn-orbit">🔄 环绕运镜: 开</button>
+      </div>
+      <div class="slider-row">
+        <span style="font-size:12px;color:#9ba8be;width:72px;">建筑剖面 Y:</span>
+        <input type="range" id="slice-y" min="15" max="126" value="126" />
+        <span id="slice-y-val" style="font-size:12px;color:#efc068;width:30px;text-align:right;">全览</span>
+      </div>
+      <div class="slider-row">
+        <span style="font-size:12px;color:#9ba8be;width:72px;">纵切剖面 X:</span>
+        <input type="range" id="slice-x" min="35" max="126" value="126" />
+        <span id="slice-x-val" style="font-size:12px;color:#efc068;width:30px;text-align:right;">全览</span>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="section-label">
+        <span>光影与辉光 · Bloom & Exposure</span>
+      </div>
+      <div class="slider-row">
+        <span style="font-size:12px;color:#9ba8be;width:72px;">琉璃辉光:</span>
+        <input type="range" id="bloom-slider" min="0" max="200" value="85" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Camera Perspective Bookmarks -->
+  <div class="bottom-bar">
+    <button class="cam-pill active" data-cam="overview">全景·千机盛景</button>
+    <button class="cam-pill" data-cam="armillary">穹顶·九重浑天仪</button>
+    <button class="cam-pill" data-cam="core">地心·以太齿轮核</button>
+    <button class="cam-pill" data-cam="bridge">飞虹·听松茶寮</button>
+    <button class="cam-pill" data-cam="dock">云津·机关飞舟</button>
+    <button class="cam-pill" data-cam="waterfall">飞瀑·天工水轮</button>
+  </div>
+
+  <!-- Bottom Left Voxel Inspector -->
+  <div class="inspector-badge" id="inspector">
+    <div class="swatch" id="insp-swatch" style="background:#38e4f8;"></div>
+    <span id="insp-text">悬停体素查看材质 · 拖拽旋转 / 滚轮缩放</span>
+  </div>
+
+  <button class="toggle-ui-fab" id="btn-toggle-ui" title="按 H 键或点击切换纯净截图模式">🖼️ 隐藏界面 (H)</button>
+
+  <!-- Load Generated Voxel Scene Data -->
+  <script src="./voxel_data.js"></script>
+
+  <!-- Load Three.js & Postprocessing from local node_modules OR fallback CDN -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+    const sceneData = window.VOXEL_SCENE;
+    document.getElementById('stat-voxels').textContent = sceneData.voxelCount.toLocaleString();
+
+    const container = document.getElementById('canvas-container');
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance', preserveDrawingBuffer: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    renderer.localClippingEnabled = true;
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x080c17);
+    scene.fog = new THREE.FogExp2(0x0b1325, 0.0024);
+
+    const camera = new THREE.PerspectiveCamera(34, window.innerWidth / window.innerHeight, 1, 900);
+    camera.position.set(162, 108, 178);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(63, 60, 63);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.maxDistance = 360;
+    controls.minDistance = 20;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.55;
+
+    // Post-processing with UnrealBloomPass (carefully calibrated so only emissive runes/lanterns/crystals glow)
+    const composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, camera);
+    composer.addPass(renderPass);
+
+    const bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(window.innerWidth, window.innerHeight),
+      0.34, // strength
+      0.38, // radius
+      0.92  // threshold: only HDR emissives (> 0.92) bloom!
+    );
+    composer.addPass(bloomPass);
+
+    // Clipping planes for live architectural cutaway inspection
+    const clipPlaneY = new THREE.Plane(new THREE.Vector3(0, -1, 0), 130);
+    const clipPlaneX = new THREE.Plane(new THREE.Vector3(-1, 0, 0), 130);
+    const activeClippingPlanes = [clipPlaneY, clipPlaneX];
+
+    // Lighting Setup
+    const ambientLight = new THREE.HemisphereLight(0x7c9eff, 0x262e45, 0.95);
+    scene.add(ambientLight);
+
+    // Main Sun / Moon Directional Light with Shadows
+    const dirLight = new THREE.DirectionalLight(0xffe4b5, 1.85);
+    dirLight.position.set(140, 175, 125);
+    dirLight.castShadow = true;
+    dirLight.shadow.mapSize.width = 2048;
+    dirLight.shadow.mapSize.height = 2048;
+    dirLight.shadow.camera.near = 20;
+    dirLight.shadow.camera.far = 380;
+    const d = 88;
+    dirLight.shadow.camera.left = -d;
+    dirLight.shadow.camera.right = d;
+    dirLight.shadow.camera.top = d;
+    dirLight.shadow.camera.bottom = -d;
+    dirLight.shadow.bias = -0.0005;
+    scene.add(dirLight);
+
+    // Rim Light from opposite side
+    const rimLight = new THREE.DirectionalLight(0x48dbfb, 0.95);
+    rimLight.position.set(-110, 65, -100);
+    scene.add(rimLight);
+
+    // Warm Under-Island Uplight to illuminate the hanging stalactites, arches & clockwork gears!
+    const underLight = new THREE.DirectionalLight(0x28e8ff, 0.85);
+    underLight.position.set(40, -100, 60);
+    scene.add(underLight);
+
+    // Point Lights inside the Voxel World for authentic glowing warmth!
+    // 1. Subterranean Aether Crystal Core Light (Cyan/Amethyst)
+    const coreLight = new THREE.PointLight(0x28e8ff, 3.8, 65, 1.4);
+    coreLight.position.set(63, 22, 63);
+    scene.add(coreLight);
+
+    // 1b. Subterranean Brass Gear Gallery Light (Warm Gold)
+    const gearLight = new THREE.PointLight(0xffbe55, 3.6, 58, 1.3);
+    gearLight.position.set(63, 34, 82);
+    scene.add(gearLight);
+
+    // 2. Central Library Tower Warm Lantern Light
+    const towerLight = new THREE.PointLight(0xffa638, 2.4, 52, 1.5);
+    towerLight.position.set(63, 68, 63);
+    scene.add(towerLight);
+
+    // 3. Crown Armillary Sphere Astral Sun Light
+    const astralLight = new THREE.PointLight(0xffdf78, 3.2, 60, 1.4);
+    astralLight.position.set(63, 98, 63);
+    scene.add(astralLight);
+
+    // Decode base64 binary voxel data
+    const rawBytes = Uint8Array.from(atob(sceneData.dataB64), c => c.charCodeAt(0));
+    const numVoxels = rawBytes.length / 4;
+    const palette = sceneData.palette;
+
+    // Build spatial hash for fast neighbor AO calculation
+    const NX = sceneData.dimensions[0];
+    const NY = sceneData.dimensions[1];
+    const NZ = sceneData.dimensions[2];
+    const occGrid = new Uint8Array(NX * NY * NZ);
+    for (let i = 0; i < numVoxels; i++) {
+      const x = rawBytes[i * 4];
+      const y = rawBytes[i * 4 + 1];
+      const z = rawBytes[i * 4 + 2];
+      const c = rawBytes[i * 4 + 3];
+      occGrid[y * NX * NZ + z * NX + x] = c;
+    }
+    function isOccupied(x, y, z) {
+      if (x < 0 || x >= NX || y < 0 || y >= NY || z < 0 || z >= NZ) return 0;
+      return occGrid[y * NX * NZ + z * NX + x];
+    }
+
+    const buckets = {
+      matte: [],
+      roof: [],
+      metal: [],
+      emissive: [],
+      water: [],
+      armillaryOuter: [],
+      armillaryInner: [],
+      gearUpper: [],
+      gearLower: [],
+      airship: []
+    };
+
+    for (let i = 0; i < numVoxels; i++) {
+      const x = rawBytes[i * 4];
+      const y = rawBytes[i * 4 + 1];
+      const z = rawBytes[i * 4 + 2];
+      const c = rawBytes[i * 4 + 3];
+      const p = palette[c] || palette[1];
+
+      // Compute subtle voxel neighborhood shading (Ambient Occlusion approximation)
+      let neighbors = 0;
+      if (isOccupied(x + 1, y, z)) neighbors++;
+      if (isOccupied(x - 1, y, z)) neighbors++;
+      if (isOccupied(x, y + 1, z)) neighbors += 1.35; // Top occlusion darkens more
+      if (isOccupied(x, y - 1, z)) neighbors += 0.45;
+      if (isOccupied(x, y, z + 1)) neighbors++;
+      if (isOccupied(x, y, z - 1)) neighbors++;
+      // Diagonal top corners for richer crevice AO
+      if (isOccupied(x + 1, y + 1, z)) neighbors += 0.35;
+      if (isOccupied(x - 1, y + 1, z)) neighbors += 0.35;
+      if (isOccupied(x, y + 1, z + 1)) neighbors += 0.35;
+      if (isOccupied(x, y + 1, z - 1)) neighbors += 0.35;
+
+      const aoFactor = p.type === 2 ? 1.0 : Math.max(0.58, 1.0 - neighbors * 0.052);
+      const item = { x, y, z, c, p, aoFactor };
+
+      // Classify kinetic mechanical sub-assemblies!
+      const dxC = x - 63;
+      const dyArm = y - 98;
+      const dzC = z - 63;
+      const rArm = Math.sqrt(dxC * dxC + dyArm * dyArm + dzC * dzC);
+      const rCenterXZ = Math.sqrt(dxC * dxC + dzC * dzC);
+
+      if (y >= 88 && rArm >= 4.5 && rArm <= 23.5 && (y > 92 || rCenterXZ > 8)) {
+        if (rArm >= 16.2) {
+          buckets.armillaryOuter.push(item);
+        } else {
+          buckets.armillaryInner.push(item);
+        }
+        continue;
+      }
+
+      if (y >= 31 && y <= 33 && rCenterXZ >= 3.0 && rCenterXZ <= 25.5 && (p.type === 1 || p.type === 2)) {
+        buckets.gearUpper.push(item);
+        continue;
+      }
+      if (y >= 23 && y <= 25 && rCenterXZ >= 3.0 && rCenterXZ <= 19.5 && (p.type === 1 || p.type === 2)) {
+        buckets.gearLower.push(item);
+        continue;
+      }
+
+      // Moored Clockwork Airship at (104, 51..63, 96)
+      if (x >= 95 && x <= 114 && y >= 50 && y <= 64 && z >= 88 && z <= 105) {
+        buckets.airship.push(item);
+        continue;
+      }
+
+      if (p.type === 2) {
+        buckets.emissive.push(item);
+      } else if (c >= 23 && c <= 30) {
+        buckets.roof.push(item);
+      } else if (p.type === 1) {
+        buckets.metal.push(item);
+      } else if (p.type === 3) {
+        buckets.water.push(item);
+      } else {
+        buckets.matte.push(item);
+      }
+    }
+
+    // Create rounded/beveled voxel box geometry for crisp specular highlights on voxel edges
+    const voxelGeo = new THREE.BoxGeometry(0.97, 0.97, 0.97);
+
+    const matMatte = new THREE.MeshStandardMaterial({
+      roughness: 0.76,
+      metalness: 0.06,
+      clippingPlanes: activeClippingPlanes
+    });
+    const matRoof = new THREE.MeshStandardMaterial({
+      roughness: 0.36,
+      metalness: 0.18,
+      clippingPlanes: activeClippingPlanes
+    });
+    const matMetal = new THREE.MeshStandardMaterial({
+      roughness: 0.30,
+      metalness: 0.65,
+      clippingPlanes: activeClippingPlanes
+    });
+    const matEmissive = new THREE.MeshBasicMaterial({
+      clippingPlanes: activeClippingPlanes
+    });
+    const matWater = new THREE.MeshPhysicalMaterial({
+      roughness: 0.15,
+      metalness: 0.08,
+      transmission: 0.42,
+      transparent: true,
+      opacity: 0.85,
+      clippingPlanes: activeClippingPlanes
+    });
+
+    const pickableMeshes = [];
+
+    function buildInstancedGroup(items, material, pivot = new THREE.Vector3(0, 0, 0), castShadow = true) {
+      if (!items.length) return null;
+      const mesh = new THREE.InstancedMesh(voxelGeo, material, items.length);
+      mesh.castShadow = castShadow;
+      mesh.receiveShadow = true;
+      mesh.position.copy(pivot);
+      mesh.userData.items = items;
+
+      const dummy = new THREE.Object3D();
+      const color = new THREE.Color();
+
+      for (let i = 0; i < items.length; i++) {
+        const it = items[i];
+        dummy.position.set(it.x - pivot.x, it.y - pivot.y, it.z - pivot.z);
+        dummy.updateMatrix();
+        mesh.setMatrixAt(i, dummy.matrix);
+
+        // Apply slight organic per-voxel micro-variation + AO
+        const jitter = 0.97 + ((it.x * 19 + it.y * 37 + it.z * 73) % 7) * 0.01;
+        const mult = it.aoFactor * jitter * (it.p.type === 2 ? (1.02 + it.p.emit * 0.25) : 1.0);
+        color.setRGB(
+          Math.min(1.25, (it.p.r / 255) * mult),
+          Math.min(1.25, (it.p.g / 255) * mult),
+          Math.min(1.25, (it.p.b / 255) * mult)
+        );
+        mesh.setColorAt(i, color);
+      }
+      mesh.instanceMatrix.needsUpdate = true;
+      if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+      scene.add(mesh);
+      pickableMeshes.push(mesh);
+      return mesh;
+    }
+
+    buildInstancedGroup(buckets.matte, matMatte);
+    buildInstancedGroup(buckets.roof, matRoof);
+    buildInstancedGroup(buckets.metal, matMetal);
+    buildInstancedGroup(buckets.emissive, matEmissive, new THREE.Vector3(0, 0, 0), false);
+    buildInstancedGroup(buckets.water, matWater, new THREE.Vector3(0, 0, 0), false);
+
+    // Kinetic Animated Voxel Assemblies!
+    const meshArmOuter = buildInstancedGroup(buckets.armillaryOuter, matMetal, new THREE.Vector3(63, 98, 63));
+    const meshArmInner = buildInstancedGroup(buckets.armillaryInner, matMetal, new THREE.Vector3(63, 98, 63));
+    const meshGearUpper = buildInstancedGroup(buckets.gearUpper, matMetal, new THREE.Vector3(63, 32, 63));
+    const meshGearLower = buildInstancedGroup(buckets.gearLower, matMetal, new THREE.Vector3(63, 24, 63));
+    const meshAirship = buildInstancedGroup(buckets.airship, matMatte, new THREE.Vector3(104, 55, 96));
+
+    // Add Floating Starfield & Rising Spirit Particles around the sanctuary
+    const particleCount = 650;
+    const pGeo = new THREE.BufferGeometry();
+    const pPositions = new Float32Array(particleCount * 3);
+    const pColors = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      const r = 45 + Math.random() * 140;
+      const theta = Math.random() * Math.PI * 2;
+      const y = -10 + Math.random() * 160;
+      pPositions[i * 3] = 63 + r * Math.cos(theta);
+      pPositions[i * 3 + 1] = y;
+      pPositions[i * 3 + 2] = 63 + r * Math.sin(theta);
+
+      const isGold = Math.random() > 0.45;
+      pColors[i * 3] = isGold ? 1.0 : 0.25;
+      pColors[i * 3 + 1] = isGold ? 0.82 : 0.92;
+      pColors[i * 3 + 2] = isGold ? 0.42 : 1.0;
+    }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+    pGeo.setAttribute('color', new THREE.BufferAttribute(pColors, 3));
+    const pMat = new THREE.PointsMaterial({
+      size: 1.35,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.85
+    });
+    const particleSystem = new THREE.Points(pGeo, pMat);
+    scene.add(particleSystem);
+
+    // Atmosphere Presets
+    const PRESETS = {
+      starlight: {
+        name: "星夜流萤",
+        bg: 0x070b14,
+        fog: 0x0a1122,
+        sunColor: 0xffe4b5,
+        sunIntensity: 1.85,
+        sunPos: [140, 175, 125],
+        rimColor: 0x48dbfb,
+        rimIntensity: 0.95,
+        ambientSky: 0x7c9eff,
+        ambientGround: 0x262e45,
+        bloom: 0.34
+      },
+      sunset: {
+        name: "暮云鎏金",
+        bg: 0x180d1a,
+        fog: 0x241222,
+        sunColor: 0xff9e58,
+        sunIntensity: 2.15,
+        sunPos: [155, 88, 120],
+        rimColor: 0xa26bfa,
+        rimIntensity: 1.05,
+        ambientSky: 0xffbe7b,
+        ambientGround: 0x2f1d34,
+        bloom: 0.36
+      },
+      dawn: {
+        name: "蓬莱晨曦",
+        bg: 0x112233,
+        fog: 0x182f42,
+        sunColor: 0xfff6e0,
+        sunIntensity: 2.1,
+        sunPos: [125, 185, 145],
+        rimColor: 0x64dfdf,
+        rimIntensity: 1.05,
+        ambientSky: 0xb8e2e8,
+        ambientGround: 0x2a4858,
+        bloom: 0.28
+      }
+    };
+
+    document.querySelectorAll('[data-preset]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-preset]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const p = PRESETS[btn.dataset.preset];
+        document.getElementById('time-label').textContent = p.name;
+        scene.background.setHex(p.bg);
+        scene.fog.color.setHex(p.fog);
+        dirLight.color.setHex(p.sunColor);
+        dirLight.intensity = p.sunIntensity;
+        dirLight.position.set(...p.sunPos);
+        rimLight.color.setHex(p.rimColor);
+        rimLight.intensity = p.rimIntensity;
+        ambientLight.color.setHex(p.ambientSky);
+        ambientLight.groundColor.setHex(p.ambientGround);
+        bloomPass.strength = p.bloom;
+        document.getElementById('bloom-slider').value = Math.round(p.bloom * 150);
+      });
+    });
+
+    // Camera Bookmarks with Smooth Interpolation
+    const CAM_VIEWS = {
+      overview:  { pos: [162, 108, 178], target: [63, 60, 63] },
+      armillary: { pos: [108, 114, 112], target: [63, 96, 63] },
+      core:      { pos: [63, 24, 128],   target: [63, 28, 63] },
+      bridge:    { pos: [-8, 68, 134],   target: [32, 48, 82] },
+      dock:      { pos: [142, 68, 138],  target: [96, 50, 90] },
+      waterfall: { pos: [98, 32, 138],   target: [72, 32, 88] }
+    };
+
+    let camAnim = null;
+    function flyToCamera(viewKey) {
+      const v = CAM_VIEWS[viewKey];
+      if (!v) return;
+      camAnim = {
+        startPos: camera.position.clone(),
+        endPos: new THREE.Vector3(...v.pos),
+        startTarget: controls.target.clone(),
+        endTarget: new THREE.Vector3(...v.target),
+        t: 0
+      };
+    }
+
+    document.querySelectorAll('[data-cam]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-cam]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        flyToCamera(btn.dataset.cam);
+      });
+    });
+
+    // Expose camera jump function globally for automated playwright screenshots
+    window.jumpToView = (viewKey, presetKey) => {
+      if (presetKey && PRESETS[presetKey]) {
+        document.querySelector(`[data-preset="${presetKey}"]`).click();
+      }
+      const v = CAM_VIEWS[viewKey];
+      if (v) {
+        camAnim = null;
+        camera.position.set(...v.pos);
+        controls.target.set(...v.target);
+        controls.update();
+      }
+    };
+
+    // Controls: Animation, Orbit, Cutaway Sliders, Bloom
+    let isAnimating = true;
+    const btnAnimate = document.getElementById('btn-animate');
+    btnAnimate.addEventListener('click', () => {
+      isAnimating = !isAnimating;
+      btnAnimate.textContent = isAnimating ? '⚙️ 机关运转: 开' : '⚙️ 机关运转: 停';
+      btnAnimate.classList.toggle('active', isAnimating);
+    });
+
+    const btnOrbit = document.getElementById('btn-orbit');
+    btnOrbit.addEventListener('click', () => {
+      controls.autoRotate = !controls.autoRotate;
+      btnOrbit.textContent = controls.autoRotate ? '🔄 环绕运镜: 开' : '🔄 环绕运镜: 停';
+      btnOrbit.classList.toggle('active', controls.autoRotate);
+    });
+
+    const sliceY = document.getElementById('slice-y');
+    const sliceYVal = document.getElementById('slice-y-val');
+    sliceY.addEventListener('input', () => {
+      const val = parseInt(sliceY.value, 10);
+      clipPlaneY.constant = val >= 125 ? 200 : val;
+      sliceYVal.textContent = val >= 125 ? '全览' : `Y<${val}`;
+    });
+
+    const sliceX = document.getElementById('slice-x');
+    const sliceXVal = document.getElementById('slice-x-val');
+    sliceX.addEventListener('input', () => {
+      const val = parseInt(sliceX.value, 10);
+      clipPlaneX.constant = val >= 125 ? 200 : val;
+      sliceXVal.textContent = val >= 125 ? '全览' : `X<${val}`;
+    });
+
+    const bloomSlider = document.getElementById('bloom-slider');
+    bloomSlider.addEventListener('input', () => {
+      bloomPass.strength = parseInt(bloomSlider.value, 10) / 150;
+    });
+
+    // Toggle UI visibility
+    function toggleUI() {
+      document.body.classList.toggle('ui-hidden');
+      const hidden = document.body.classList.contains('ui-hidden');
+      document.getElementById('btn-toggle-ui').textContent = hidden ? '🖼️ 显示界面 (H)' : '🖼️ 隐藏界面 (H)';
+    }
+    document.getElementById('btn-toggle-ui').addEventListener('click', toggleUI);
+    window.addEventListener('keydown', e => {
+      if (e.key === 'h' || e.key === 'H') toggleUI();
+    });
+
+    // Raycaster for Live Voxel Material & Coordinate Inspection
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    const inspSwatch = document.getElementById('insp-swatch');
+    const inspText = document.getElementById('insp-text');
+
+    window.addEventListener('pointermove', e => {
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const hits = raycaster.intersectObjects(pickableMeshes, false);
+      if (hits.length > 0) {
+        const hit = hits[0];
+        const items = hit.object.userData.items;
+        if (items && hit.instanceId !== undefined && items[hit.instanceId]) {
+          const v = items[hit.instanceId];
+          inspSwatch.style.background = `rgb(${v.p.r}, ${v.p.g}, ${v.p.b})`;
+          const matTypes = ['哑光岩木', '鎏金黄铜', '自发光灵枢', '流泉半透'];
+          inspText.textContent = `[${v.x}, ${v.y}, ${v.z}] #${v.c} ${v.p.name} (${matTypes[v.p.type] || '标准'})`;
+        }
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      composer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Main Render & Kinetic Animation Loop
+    const clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      const dt = clock.getDelta();
+      const elapsed = clock.getElapsedTime();
+
+      if (camAnim) {
+        camAnim.t = Math.min(1, camAnim.t + dt * 1.6);
+        const ease = 1 - Math.pow(1 - camAnim.t, 3);
+        camera.position.lerpVectors(camAnim.startPos, camAnim.endPos, ease);
+        controls.target.lerpVectors(camAnim.startTarget, camAnim.endTarget, ease);
+        if (camAnim.t >= 1) camAnim = null;
+      }
+
+      if (isAnimating) {
+        if (meshArmOuter) {
+          meshArmOuter.rotation.y = elapsed * 0.32;
+          meshArmOuter.rotation.z = Math.sin(elapsed * 0.4) * 0.12;
+        }
+        if (meshArmInner) {
+          meshArmInner.rotation.y = -elapsed * 0.55;
+          meshArmInner.rotation.x = Math.cos(elapsed * 0.5) * 0.18;
+        }
+        if (meshGearUpper) {
+          meshGearUpper.rotation.y = elapsed * 0.45;
+        }
+        if (meshGearLower) {
+          meshGearLower.rotation.y = -elapsed * 0.65;
+        }
+        if (meshAirship) {
+          meshAirship.position.y = 55 + Math.sin(elapsed * 1.6) * 1.1;
+        }
+        particleSystem.rotation.y = elapsed * 0.04;
+      }
+
+      // Subtle pulse on core point light
+      coreLight.intensity = 5.2 + Math.sin(elapsed * 2.5) * 0.8;
+      astralLight.intensity = 4.6 + Math.cos(elapsed * 3.0) * 0.7;
+
+      controls.update();
+      composer.render();
+    }
+    animate();
+  </script>
+</body>
+</html>

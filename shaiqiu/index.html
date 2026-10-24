@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>晒秋 · 篁岭九月</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #f0dcb4; }
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+
+  #ui {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+    color: #4a3a28;
+    user-select: none;
+  }
+
+  /* 右上竖排标题 + 印章 */
+  .title-block {
+    position: absolute; top: 34px; right: 38px;
+    display: flex; flex-direction: row-reverse; align-items: flex-start; gap: 14px;
+  }
+  .title {
+    writing-mode: vertical-rl;
+    font-size: 58px; font-weight: 700;
+    letter-spacing: 0.34em;
+    color: #503a24;
+    text-shadow: 0 1px 0 rgba(255,244,220,.55);
+    line-height: 1;
+  }
+  .side-col { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 6px; }
+  .seal {
+    width: 34px; height: 34px;
+    background: #b23a20;
+    color: #f7e9d2;
+    font-size: 22px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 5px;
+    transform: rotate(2.5deg);
+    box-shadow: 0 1px 3px rgba(90,40,20,.35);
+  }
+  .sub {
+    writing-mode: vertical-rl;
+    font-size: 14px; letter-spacing: 0.28em;
+    color: rgba(74,58,40,.72);
+  }
+
+  /* 左下注脚 */
+  .foot {
+    position: absolute; left: 30px; bottom: 24px;
+    font-size: 12.5px; letter-spacing: 0.14em;
+    color: rgba(74,58,40,.55);
+  }
+  .foot b { font-weight: 600; color: rgba(74,58,40,.8); }
+
+  @media (max-width: 720px) {
+    .title { font-size: 40px; }
+    .title-block { top: 20px; right: 20px; }
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="ui">
+  <div class="title-block">
+    <div class="title">晒秋</div>
+    <div class="side-col">
+      <div class="seal">豐</div>
+      <div class="sub">篁岭 · 九月晒匾红</div>
+    </div>
+  </div>
+  <div class="foot">拖拽旋转 · 滚轮远近 —— 白墙黛瓦之上，辣椒与菊，正晒着一场秋天</div>
+</div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,622 @@
+{
+ "shots": [
+  {
+   "name": "ch0",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch0.png",
+   "probe": {
+    "rgb": [
+     0.792,
+     0.791,
+     0.744
+    ],
+    "hue": 56.6,
+    "hueSat": 85.3,
+    "sat": 0.054,
+    "satPix": 892,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch0",
+    "chapter": 0
+   },
+   "stats": {
+    "calls": 175,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "ch1",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch1.png",
+   "probe": {
+    "rgb": [
+     0.535,
+     0.572,
+     0.474
+    ],
+    "hue": 78.8,
+    "hueSat": 89.2,
+    "sat": 0.11,
+    "satPix": 5949,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch1",
+    "chapter": 1
+   },
+   "stats": {
+    "calls": 70,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "ch2",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch2.png",
+   "probe": {
+    "rgb": [
+     0.607,
+     0.648,
+     0.609
+    ],
+    "hue": 95.2,
+    "hueSat": 153.1,
+    "sat": 0.083,
+    "satPix": 4065,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch2",
+    "chapter": 2
+   },
+   "stats": {
+    "calls": 102,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "ch3",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch3.png",
+   "probe": {
+    "rgb": [
+     0.261,
+     0.387,
+     0.221
+    ],
+    "hue": 105.6,
+    "hueSat": 107.2,
+    "sat": 0.176,
+    "satPix": 12889,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch3",
+    "chapter": 3
+   },
+   "stats": {
+    "calls": 89,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "ch4",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch4.png",
+   "probe": {
+    "rgb": [
+     0.466,
+     0.548,
+     0.486
+    ],
+    "hue": 142,
+    "hueSat": 124.9,
+    "sat": 0.111,
+    "satPix": 6698,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch4",
+    "chapter": 4
+   },
+   "stats": {
+    "calls": 95,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "ch5",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch5.png",
+   "probe": {
+    "rgb": [
+     0.433,
+     0.514,
+     0.441
+    ],
+    "hue": 139.5,
+    "hueSat": 122.4,
+    "sat": 0.143,
+    "satPix": 9394,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch5",
+    "chapter": 5
+   },
+   "stats": {
+    "calls": 77,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "ch6",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/ch6.png",
+   "probe": {
+    "rgb": [
+     0.267,
+     0.305,
+     0.38
+    ],
+    "hue": 211.9,
+    "hueSat": 223.2,
+    "sat": 0.152,
+    "satPix": 10160,
+    "n": 16000
+   },
+   "spec": {
+    "name": "ch6",
+    "chapter": 6
+   },
+   "stats": {
+    "calls": 45,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "silk",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/silk.png",
+   "probe": {
+    "rgb": [
+     0.567,
+     0.596,
+     0.485
+    ],
+    "hue": 73.8,
+    "hueSat": 71.5,
+    "sat": 0.158,
+    "satPix": 10529,
+    "n": 16000
+   },
+   "spec": {
+    "name": "silk",
+    "chapter": 2,
+    "silk": 1
+   },
+   "stats": {
+    "calls": 103,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "dye-0.06",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/dye-0.06.png",
+   "probe": {
+    "rgb": [
+     0.733,
+     0.719,
+     0.664
+    ],
+    "hue": 62.6,
+    "hueSat": 40.7,
+    "sat": 0.111,
+    "satPix": 6769,
+    "n": 16000
+   },
+   "spec": {
+    "name": "dye-0.06",
+    "chapter": 2,
+    "dye": 0.06
+   },
+   "stats": {
+    "calls": 102,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "dye-0.22",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/dye-0.22.png",
+   "probe": {
+    "rgb": [
+     0.618,
+     0.601,
+     0.552
+    ],
+    "hue": 59.2,
+    "hueSat": 35,
+    "sat": 0.108,
+    "satPix": 7115,
+    "n": 16000
+   },
+   "spec": {
+    "name": "dye-0.22",
+    "chapter": 2,
+    "dye": 0.22
+   },
+   "stats": {
+    "calls": 102,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "dye-0.40",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/dye-0.40.png",
+   "probe": {
+    "rgb": [
+     0.611,
+     0.637,
+     0.59
+    ],
+    "hue": 82.1,
+    "hueSat": 114.9,
+    "sat": 0.08,
+    "satPix": 3793,
+    "n": 16000
+   },
+   "spec": {
+    "name": "dye-0.40",
+    "chapter": 2,
+    "dye": 0.4
+   },
+   "stats": {
+    "calls": 102,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "dye-0.62",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/dye-0.62.png",
+   "probe": {
+    "rgb": [
+     0.607,
+     0.649,
+     0.61
+    ],
+    "hue": 95.7,
+    "hueSat": 153.9,
+    "sat": 0.083,
+    "satPix": 4039,
+    "n": 16000
+   },
+   "spec": {
+    "name": "dye-0.62",
+    "chapter": 2,
+    "dye": 0.62
+   },
+   "stats": {
+    "calls": 102,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  },
+  {
+   "name": "dye-0.85",
+   "file": "/Users/thysummer/工作流/code/体素/qinglv-qianli/renders/dye-0.85.png",
+   "probe": {
+    "rgb": [
+     0.607,
+     0.648,
+     0.609
+    ],
+    "hue": 95.5,
+    "hueSat": 153.7,
+    "sat": 0.083,
+    "satPix": 4039,
+    "n": 16000
+   },
+   "spec": {
+    "name": "dye-0.85",
+    "chapter": 2,
+    "dye": 0.85
+   },
+   "stats": {
+    "calls": 102,
+    "renderTriangles": null,
+    "fps": "60",
+    "pr": 1.5,
+    "quality": "high",
+    "voxels": 1816104,
+    "faces": 1572531,
+    "triangles": 3145062,
+    "farBlocks": 68453,
+    "wheelBlocks": 242,
+    "chunks": 15,
+    "buildMs": 1788,
+    "heapMB": 169
+   },
+   "webgl": {
+    "webgl2": true,
+    "vendor": "Google Inc. (Apple)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "floatBuffer": true
+   },
+   "viewport": {
+    "width": 1600,
+    "height": 1000
+   },
+   "quality": "high"
+  }
+ ],
+ "consoleErrors": []
+}

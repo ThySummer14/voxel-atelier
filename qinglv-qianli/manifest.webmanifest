@@ -1,0 +1,22 @@
+{
+  "name": "青绿千里",
+  "short_name": "青绿千里",
+  "description": "北宋王希孟《千里江山图》的可展卷体素长卷互动作品。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#e9dfc4",
+  "theme_color": "#e9dfc4",
+  "categories": ["art", "education", "entertainment"],
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
