@@ -238,5 +238,15 @@ window.WORKS = [
     date: "2026.10",
     accent: "#a95137",
     desc: "灯塔、阶梯小镇与渔港组成的海岛小世界；海风转动磨坊，夜色点亮归航的灯。"
+  },
+  {
+    slug: "orloj-1410",
+    title: "时之圣殿",
+    en: "ORLOJ 1410",
+    cat: "机械",
+    model: "Kimi K3.1 Pro",
+    date: "2026.10",
+    accent: "#b08a3e",
+    desc: "布拉格天文钟的体素转译：星盘、黄道、使徒与整点报时真正联动。"
   }
 ];

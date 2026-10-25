@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07181d" />
+    <meta name="generator" content="Kimi K3.1 Pro" />
+    <meta name="description" content="ORLOJ 1410 — 一座以布拉格天文钟为蓝本的交互式体素时间圣殿，由 Kimi K3.1 Pro 创作。" />
+    <title>ORLOJ 1410 — 时之圣殿</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307181d'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23d6b66f' stroke-width='3'/%3E%3Cpath d='M32 15v17l12 7' fill='none' stroke='%23d6b66f' stroke-width='3'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/index-DFtFYSkc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-IYzl9a_t.css">
+  </head>
+  <body>
+    <main id="exhibition" aria-label="ORLOJ 交互式体素展览">
+      <div id="scene" aria-label="可拖拽旋转的三维体素布拉格天文钟"></div>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+      <header class="masthead interface">
+        <a class="identity" href="#" aria-label="返回总览" data-view="overview">
+          <svg class="brand-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M22 3 39 12.5v19L22 41 5 31.5v-19L22 3Z"/><path d="M22 9v26M10 15l24 14M34 15 10 29"/><circle cx="22" cy="22" r="5"/></svg>
+          <span><b>ATELIER</b><small>KIMI K3.1 PRO · VOXEL STUDY № 1410</small></span>
+        </a>
+        <div class="coordinates"><span>50°05′15″ N</span><i></i><span>14°25′15″ E</span></div>
+        <nav class="utilities" aria-label="展览工具">
+          <button id="sound-toggle" class="icon-button" aria-label="开启声音" title="声音 · M">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 9v6h4l5 4V5L9 9H5Z"/><path class="sound-waves" d="M17 8c1.4 1 1.4 7 0 8M20 5c3 3 3 11 0 14"/></svg>
+          </button>
+          <button id="capture" class="icon-button" aria-label="保存当前画面" title="保存画面 · P">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h4l2-3h4l2 3h4v13H4V7Z"/><circle cx="12" cy="13" r="4"/></svg>
+          </button>
+          <button id="focus-mode" class="icon-button" aria-label="隐藏界面" title="纯净模式 · H">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg>
+          </button>
+        </nav>
+      </header>
+
+      <section class="editorial interface" aria-labelledby="work-title">
+        <div class="eyebrow"><span></span> HOROLOGIUM · PRAGUE</div>
+        <h1 id="work-title">ORLOJ<span>1410</span></h1>
+        <p class="chinese-title">时 之 圣 殿</p>
+        <p class="model-credit"><span>MODEL</span>KIMI K3.1 PRO</p>
+        <div class="editorial-rule"></div>
+        <p class="synopsis">石头记住城市，齿轮收藏星空。<br />六百余年的时间，被重新雕刻成方块。</p>
+        <dl class="artifact-data">
+          <div><dt>MEDIUM</dt><dd>三维体素 · 实时光影</dd></div>
+          <div><dt>MODEL</dt><dd>Kimi K3.1 Pro</dd></div>
+          <div><dt>ORIGIN</dt><dd>Prague, Czechia</dd></div>
+          <div><dt>VOXELS</dt><dd id="voxel-count">—</dd></div>
+        </dl>
+        <button id="story-open" class="text-link"><span>阅读作品注记</span><svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"/></svg></button>
+      </section>
+
+      <aside class="scene-index interface" aria-label="当前视角">
+        <span id="view-number">01</span>
+        <div><small>NOW VIEWING</small><strong id="view-name">时间圣殿</strong></div>
+      </aside>
+
+      <div class="time-control interface">
+        <div class="time-copy"><small>ILLUMINATION</small><span id="time-label">蓝调时刻</span></div>
+        <button id="time-toggle" class="celestial-toggle" aria-label="切换昼夜" aria-pressed="false"><span class="sun-icon">✦</span><i></i><span class="moon-icon">☾</span></button>
+      </div>
+
+      <div class="primary-actions interface">
+        <button id="chime" class="chime-button">
+          <span class="chime-symbol"><svg viewBox="0 0 28 28" fill="none"><path d="M7 20h14l-2-3v-6a5 5 0 0 0-10 0v6l-2 3Z"/><path d="M12 23h4M14 3v2M5 7l2 2M23 7l-2 2"/></svg></span>
+          <span class="chime-copy"><small>MECHANICAL PERFORMANCE</small><strong>启动整点报时</strong></span>
+          <span class="chime-arrow">↗</span>
+          <span class="chime-progress"></span>
+        </button>
+        <p id="performance-status" aria-live="polite">让沉睡六百年的机芯，再行走一次</p>
+      </div>
+
+      <footer class="bottom-bar interface">
+        <div class="gesture-hint"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="18" rx="5"/><path d="M12 2v6M3 11l-2 2 2 2M21 11l2 2-2 2"/></svg><span>拖拽环绕<i>·</i>滚轮细赏</span></div>
+        <nav class="view-switcher" aria-label="选择视角">
+          <button class="active" data-view="overview"><span>01</span>总览</button>
+          <button data-view="astrolabe"><span>02</span>星盘</button>
+          <button data-view="mechanism"><span>03</span>机芯</button>
+          <button data-view="rooftop"><span>04</span>屋脊</button>
+        </nav>
+        <div class="edition">DIGITAL SCULPTURE <span>1 / 1</span></div>
+      </footer>
+
+      <button id="exit-focus" class="exit-focus" aria-label="显示界面">显示界面 <kbd>H</kbd></button>
+      <div id="toast" class="toast" role="status"></div>
+
+      <dialog id="story-dialog" class="story-dialog">
+        <button id="story-close" class="dialog-close" aria-label="关闭">×</button>
+        <div class="story-overline">FIELD NOTES · 1410</div>
+        <h2>把宇宙，装进餐盘大小的圆里。</h2>
+        <p>布拉格天文钟并不只指示小时。金色太阳穿过黄道，黑色月亮经历盈亏，古老的双钟盘把昼夜、季节与城市的祈愿叠在同一根轴上。</p>
+        <p>这件数字雕塑保留实物的双盘、石塔、尖顶与雕像，再将看不见的机械翻到塔身之外。每一个方块都是时间的切片；每一次报时，都是它们短暂地恢复秩序。</p>
+        <div class="story-legend"><span><i class="gold"></i>太阳与黄道</span><span><i class="blue"></i>天空与昼夜</span><span><i class="stone"></i>砂岩与历史</span></div>
+        <div class="shortcut-list"><span><kbd>1—4</kbd> 切换视角</span><span><kbd>Space</kbd> 启动报时</span><span><kbd>N</kbd> 昼夜</span><span><kbd>H</kbd> 纯净模式</span></div>
+      </dialog>
+
+      <div id="loader" class="loader">
+        <div class="loader-orbit"><i></i><i></i><b></b></div>
+        <p>ASSEMBLING TIME</p>
+        <span id="load-progress">000</span>
+        <small>正在雕刻每一枚时间碎片</small>
+      </div>
+    </main>
+  </body>
+</html>

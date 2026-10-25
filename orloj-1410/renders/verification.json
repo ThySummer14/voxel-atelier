@@ -1,0 +1,80 @@
+{
+  "checks": {
+    "ready": true,
+    "voxel_count": true,
+    "night_state": true,
+    "camera_button": true,
+    "story_open": true,
+    "story_close": true,
+    "time_button": true,
+    "performance_running": true,
+    "gears_move": true,
+    "doors_open": true,
+    "apostles_emerge": true,
+    "performance_finishes": true,
+    "doors_close": true,
+    "png_export": true,
+    "focus_keyboard": true,
+    "focus_restore": true,
+    "mobile_navigation": true,
+    "no_console_errors": true
+  },
+  "stats": {
+    "overview": {
+      "voxels": 18380,
+      "fps": 60,
+      "drawCalls": 659,
+      "triangles": 876525,
+      "view": "overview",
+      "night": false,
+      "performing": false
+    },
+    "astrolabe": {
+      "voxels": 18380,
+      "fps": 60,
+      "drawCalls": 547,
+      "triangles": 828045,
+      "view": "astrolabe",
+      "night": false,
+      "performing": false
+    },
+    "mechanism": {
+      "voxels": 18380,
+      "fps": 60,
+      "drawCalls": 565,
+      "triangles": 838629,
+      "view": "mechanism",
+      "night": false,
+      "performing": false
+    },
+    "rooftop": {
+      "voxels": 18380,
+      "fps": 60,
+      "drawCalls": 463,
+      "triangles": 739821,
+      "view": "rooftop",
+      "night": false,
+      "performing": false
+    },
+    "desktop_final": {
+      "voxels": 18380,
+      "fps": 60,
+      "drawCalls": 659,
+      "triangles": 876525,
+      "view": "overview",
+      "night": false,
+      "performing": false
+    },
+    "mobile": {
+      "voxels": 18380,
+      "fps": 60,
+      "drawCalls": 455,
+      "triangles": 764589,
+      "view": "astrolabe",
+      "night": false,
+      "performing": false
+    }
+  },
+  "errors": [],
+  "all_passed": true
+}
