@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN" data-mood="sunset">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dce3d9" />
+    <meta name="description" content="潮生 TIDEBORN，一座由近两万块体素构筑的海岛。转动镜头，走过日落、海风与灯火。" />
+    <title>潮生 TIDEBORN · 一座海岛的慢时光</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="loading" id="loading" aria-live="polite">
+      <div class="loading-art"><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="eyebrow">TIDEBORN / BUILDING A LITTLE WORLD</span>
+      <p>一座海岛，正在醒来。</p>
+      <div class="loading-track"><div id="loading-progress"></div></div>
+      <span id="loading-label">铺好第一块石头</span>
+    </div>
+
+    <main id="app">
+      <div id="stage" role="img" aria-label="可旋转、可缩放的原创体素海岛。包含灯塔、阶梯小镇、风车和渔港。"></div>
+      <div class="vignette" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="小世界 A LITTLE WORLD，返回潮生全岛视角">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>小世界<span class="brand-en">A LITTLE WORLD</span></span>
+        </a>
+        <div class="top-actions">
+          <button class="text-button" id="about-button" aria-expanded="false" aria-controls="about-panel">作品手记 <span aria-hidden="true">↗</span></button>
+          <button class="save-button" id="capture-button" aria-label="保存画面"><span class="capture-icon" aria-hidden="true"></span><span>保存画面</span></button>
+        </div>
+      </header>
+
+      <section class="intro" aria-labelledby="work-title">
+        <span class="eyebrow">VOXEL DIORAMA <span class="intro-rule"></span> NO. 001</span>
+        <h1 id="work-title">潮生<span>TIDEBORN</span></h1>
+        <p class="intro-copy">把一段海岸，<br />藏进一个小世界。</p>
+        <div class="intro-credit"><span class="tiny-square"></span> 原创体素作品 · 2026</div>
+        <div class="intro-separator"></div>
+        <p class="invitation">从灯塔到港口，<br />找一处你想停留的地方。</p>
+        <button class="tour-button" id="tour-button" aria-pressed="false"><span class="play-icon" aria-hidden="true"></span><span id="tour-label">随海风环游</span></button>
+      </section>
+
+      <section class="atmosphere" aria-label="场景时间">
+        <div class="mood-heading"><span class="sun-symbol" aria-hidden="true">◌</span><span id="mood-label">日落之前</span><time id="scene-time">17:40</time></div>
+        <div class="mood-switch" role="group" aria-label="切换光照">
+          <button data-mood="morning" aria-pressed="false">晨光</button>
+          <button data-mood="sunset" class="active" aria-pressed="true">日落</button>
+          <button data-mood="night" aria-pressed="false">入夜</button>
+        </div>
+      </section>
+
+      <div id="landmarks" aria-label="探索岛上地标"></div>
+
+      <aside class="story" id="story" aria-hidden="true">
+        <button class="story-close" id="story-close" aria-label="收起地标故事">×</button>
+        <span class="eyebrow" id="story-subtitle"></span>
+        <h2 id="story-title"></h2>
+        <p id="story-body"></p>
+        <div class="story-detail" id="story-detail"></div>
+      </aside>
+
+      <div class="view-tools" role="group" aria-label="镜头工具">
+        <button id="zoom-in" aria-label="放大" title="放大">＋</button>
+        <button id="zoom-out" aria-label="缩小" title="缩小">−</button>
+        <span></span>
+        <button id="reset-view" aria-label="回到全景" title="回到全景"><span class="reset-icon" aria-hidden="true">⌖</span></button>
+        <button id="fullscreen-button" aria-label="全屏欣赏" title="全屏欣赏"><span class="fullscreen-icon" aria-hidden="true"></span></button>
+      </div>
+
+      <footer class="bottom-bar">
+        <div class="world-stats"><span class="live-dot"></span><span id="voxel-count">—</span><span class="stats-unit">块细节，组成一座岛</span></div>
+        <nav class="camera-nav" aria-label="场景镜头">
+          <button data-view="0" class="active" aria-pressed="true"><span>01</span> 全岛</button>
+          <button data-view="1" aria-pressed="false"><span>02</span> 灯塔</button>
+          <button data-view="2" aria-pressed="false"><span>03</span> 渔港</button>
+          <button data-view="3" aria-pressed="false"><span>04</span> 风车</button>
+          <button data-view="4" aria-pressed="false"><span>05</span> 街巷</button>
+        </nav>
+        <button class="sound-button" id="sound-button" aria-pressed="false"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-label">海风音景</span></button>
+      </footer>
+      <div class="interaction-hint"><span class="mouse-icon" aria-hidden="true"></span><span>拖动旋转</span><b>·</b><span>滚轮缩放</span><b>·</b><span>点击光点探索</span></div>
+
+      <div class="panel-backdrop" id="panel-backdrop" hidden></div>
+      <aside class="about-panel" id="about-panel" aria-label="作品手记" aria-hidden="true" inert>
+        <div class="panel-top"><span class="eyebrow">FIELD NOTES / 001</span><button class="close-button" id="about-close" aria-label="关闭作品手记">×</button></div>
+        <span class="notes-index">一座岛的诞生</span>
+        <h2>海很大。<br />日子可以很慢。</h2>
+        <p class="notes-lead">《潮生》是一座想象中的地中海港城，也是一个可以握在手里的小世界。</p>
+        <p>砂岩托起错落的房子，石阶一路通向灯塔。磨坊借海风转动，渔船轻轻起伏。入夜之后，小镇的窗户会一扇扇亮起来。</p>
+        <p>所有建筑、屋瓦、树木和船只都由立方体构成。没有加载现成模型，每一处细节都属于这座岛。</p>
+        <div class="notes-facts">
+          <div><strong id="fact-boxes">—</strong><span>独立方块</span></div>
+          <div><strong id="fact-buildings">—</strong><span>岛上建筑</span></div>
+          <div><strong>04</strong><span>归港的船</span></div>
+          <div><strong>03</strong><span>光照时刻</span></div>
+        </div>
+        <div class="notes-section"><span class="eyebrow">TAKE A CLOSER LOOK</span><p>找找码头尽头的橘猫、邮局的时钟，还有屋顶之间晾晒的衣服。切换到入夜，看看灯塔为谁亮起。</p></div>
+        <a class="model-link" href="/潮生-TIDEBORN.vox" download>带走这座岛 <span>MagicaVoxel .vox ↗</span></a>
+        <div class="notes-footer">TIDEBORN · ORIGINAL VOXEL ART<br /><span>GPT-6.1 sol · 构筑于 2026 年秋</span></div>
+      </aside>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <div class="fatal-error" id="fatal-error" hidden><h2>画面暂时没有展开</h2><p id="error-message">请使用支持 WebGL 2 的浏览器重新打开。</p><button id="retry-button">重新打开</button></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

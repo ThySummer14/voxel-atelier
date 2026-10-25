@@ -1,0 +1,21 @@
+{
+  "title": "潮生 / TIDEBORN",
+  "seed": 270819,
+  "sourceCuboids": 19385,
+  "voxelSize": 0.4,
+  "size": [
+    239,
+    199,
+    124
+  ],
+  "voxels": 749430,
+  "palette": 255,
+  "sourceColors": 258,
+  "bytes": 2998816,
+  "stats": {
+    "buildings": 19,
+    "boats": 4,
+    "trees": 18,
+    "people": 11
+  }
+}

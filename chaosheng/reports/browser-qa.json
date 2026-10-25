@@ -1,0 +1,73 @@
+{
+  "checks": [
+    "Final scene contains 19,385 cuboids",
+    "Camera 1 reaches the requested view",
+    "Camera 2 reaches the requested view",
+    "Camera 2 opens its landmark story",
+    "Camera 3 reaches the requested view",
+    "Camera 3 opens its landmark story",
+    "Camera 4 reaches the requested view",
+    "Camera 4 opens its landmark story",
+    "Camera 5 reaches the requested view",
+    "Camera 5 opens its landmark story",
+    "morning lighting and UI state are synchronized",
+    "sunset lighting and UI state are synchronized",
+    "night lighting and UI state are synchronized",
+    "Windmill animation advances over time",
+    "Soundscape starts after an explicit click",
+    "Soundscape switches off",
+    "Tour starts orbiting",
+    "Dragging interrupts the tour",
+    "Zoom-in changes the camera",
+    "Zoom-out restores the previous scale",
+    "Fullscreen opens",
+    "Field notes drawer opens",
+    "VOX download succeeds",
+    "Escape closes the drawer",
+    "sunset high-resolution PNG downloads successfully",
+    "night high-resolution PNG downloads successfully",
+    "All four landmarks fit the 880px viewport",
+    "All four landmarks fit the 1024px viewport",
+    "Mobile camera navigation fits the viewport",
+    "Mobile detail view uses its own framing",
+    "Mobile notes drawer fits the viewport",
+    "Reduced motion keeps environment animation still",
+    "Reduced motion avoids automatic orbiting",
+    "No JavaScript or browser console errors during the full journey"
+  ],
+  "errors": [],
+  "frameTiming": {
+    "medianFrameMs": 16.699999999999818,
+    "p95FrameMs": 17.59999999999991,
+    "meanFrameMs": 16.666666666666668
+  },
+  "diagnostics": {
+    "ready": true,
+    "boxes": 19385,
+    "stats": {
+      "buildings": 19,
+      "boats": 4,
+      "trees": 18,
+      "people": 11
+    },
+    "view": 0,
+    "mood": "sunset",
+    "drawCalls": 241,
+    "triangles": 926124,
+    "pixelRatio": 1,
+    "ssao": true,
+    "meanRenderMs": 1,
+    "meanFrameMs": 17.1,
+    "cameraZoom": 1,
+    "exporting": false,
+    "audioEnabled": false,
+    "reducedMotion": false
+  },
+  "artifact": {
+    "file": "潮生-TIDEBORN.html",
+    "sha256": "8208cd9950643b2636e11e3f1263a0b9c567a9531c753cf94126c67efca6cf32",
+    "bytes": 4724405
+  },
+  "resourceIsolation": "Main-document navigation allowed; all subresource requests blocked during the full browser journey.",
+  "model": "GPT-6.1 sol"
+}

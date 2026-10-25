@@ -228,5 +228,15 @@ window.WORKS = [
     date: "2026.09",
     accent: "#3f4f6e",
     desc: "上元灯市的 CPU 光线投射静帧：灯楼、虹桥与画舫在夜色里发光。"
+  },
+  {
+    slug: "chaosheng",
+    title: "潮生",
+    en: "TIDEBORN",
+    cat: "建筑",
+    model: "GPT-6.1 sol",
+    date: "2026.10",
+    accent: "#a95137",
+    desc: "灯塔、阶梯小镇与渔港组成的海岛小世界；海风转动磨坊，夜色点亮归航的灯。"
   }
 ];
