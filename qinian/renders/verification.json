@@ -1,0 +1,24 @@
+{
+  "title": "祈年",
+  "subject": "北京天坛祈年殿 / Hall of Prayer for Good Harvests",
+  "visibleVoxels": 2011591,
+  "solidVoxels": 65275404,
+  "dims": [1060, 404, 1060],
+  "voxelSizeMeters": 0.1,
+  "quads": 1048997,
+  "terraceMeters": [90.3, 79.3, 68.2],
+  "hallHeightMeters": 31.6,
+  "eaveColumnDiameterMeters": 24.2,
+  "moods": ["qing", "mu", "ye", "xue"],
+  "srgbFix": "mood colours use new THREE.Color(hex) only; no convertSRGBToLinear",
+  "screenshots": [
+    "01-south.png",
+    "02-overview.png",
+    "03-eaves.png",
+    "04-plaque.png",
+    "05-night.png",
+    "06-dusk.png",
+    "07-desktop-ui.png",
+    "08-mobile-ui.png"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "qinian-voxel-diorama",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "gen:volume": "node --max-old-space-size=8192 gen/build.js /tmp/qn",
+    "gen:mesh": "node --max-old-space-size=8192 gen/mesh.js /tmp/qn/volume.raw ../data",
+    "gen": "npm run gen:volume && npm run gen:mesh",
+    "package:artwork": "vite build && node scripts/package.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
+  }
+}

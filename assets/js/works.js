@@ -248,5 +248,15 @@ window.WORKS = [
     date: "2026.10",
     accent: "#b08a3e",
     desc: "布拉格天文钟的体素转译：星盘、黄道、使徒与整点报时真正联动。"
+  },
+  {
+    slug: "qinian",
+    title: "祈年",
+    en: "HALL OF PRAYER",
+    cat: "建筑",
+    model: "Grok 4.6",
+    date: "2026.10",
+    accent: "#1e3a78",
+    desc: "北京天坛祈年殿与祈谷坛的实测体素：2,011,591 枚可见体素，1060 × 1060 × 404，一格十厘米。"
   }
 ];

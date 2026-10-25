@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>祈年 · 天坛祈年殿体素 — 体素工坊</title>
+<meta name="description" content="以北京天坛祈年殿为参照的实时体素作品：三层汉白玉祈谷坛、三重蓝琉璃檐与二十八柱，约两百万枚 10 厘米体素按实测比例逐格垒砌。">
+<meta name="theme-color" content="#1b2440">
+<meta name="generator" content="Grok 4.6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="祈年 · 天坛祈年殿体素">
+<meta property="og:description" content="三台三檐、二十八柱，约两百万枚 10 厘米体素的祈年殿。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23a83a2c'/%3E%3Cpath d='M14 44h36M18 36h28M22 28h20M26 20h12M32 10v8' stroke='%23f6efe0' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body data-ui="light">
+<canvas id="scene" aria-label="可拖拽旋转的天坛祈年殿体素模型"></canvas>
+<div id="hotspots" class="hotspots" aria-label="注释点"></div>
+
+<header class="top ui">
+  <a class="back" href="../" aria-label="返回体素工坊展厅"><span aria-hidden="true">←</span> 体素工坊</a>
+  <div class="tools">
+    <button type="button" id="toggle-hs" aria-pressed="true">注释</button>
+    <button type="button" id="open-notes">作品注记</button>
+    <button type="button" id="capture">存图</button>
+    <button type="button" id="focus" title="隐藏界面 · H">纯净</button>
+  </div>
+</header>
+
+<section class="title ui" aria-labelledby="work-title">
+  <p class="kicker">Voxel Atelier · No. 26 · Temple of Heaven</p>
+  <h1 id="work-title"><span class="seal" aria-hidden="true">祈</span><span class="t">祈年</span></h1>
+  <p class="sub">北京天坛 · 祈年殿与祈谷坛</p>
+  <p class="en">The Hall of Prayer for Good Harvests, Beijing</p>
+  <dl class="specs">
+    <div><dt>参照</dt><dd>明永乐十八年（1420）始建 · 光绪二十二年（1896）重建</dd></div>
+    <div><dt>体素</dt><dd><b id="voxel-count">—</b> 枚可见体素</dd></div>
+    <div><dt>网格</dt><dd><b id="voxel-dims">—</b> · 1 体素 = 10 cm</dd></div>
+    <div><dt>尺度</dt><dd>坛径 90.3 m · 殿高 31.6 m · 实测比例</dd></div>
+  </dl>
+</section>
+
+<aside class="moodbar ui" aria-label="天时">
+  <p class="label">天时 · Light</p>
+  <div id="moods" class="moods"></div>
+  <p id="mood-note" class="mood-note"></p>
+</aside>
+
+<nav id="views" class="viewbar ui" aria-label="视角"></nav>
+
+<p class="hint ui">拖拽环绕 · 滚轮推近 · 右键平移 · 双击复位</p>
+
+<div id="hs-card" class="hs-card" aria-live="polite">
+  <span class="hs-no">01</span>
+  <h3></h3>
+  <p></p>
+  <button type="button" id="hs-close" aria-label="关闭注释">×</button>
+</div>
+
+<dialog id="notes" class="notes">
+  <button type="button" id="close-notes" class="notes-close" aria-label="关闭">×</button>
+  <p class="kicker">作品注记 · Field notes</p>
+  <h2>一座殿，三层台，二十八根柱。</h2>
+  <p>参照物是北京天坛祈年殿与它脚下的祈谷坛。明永乐十八年（1420）始建为大祀殿，嘉靖二十四年（1545）改为三重檐圆殿「大享殿」，乾隆十六年（1751）改今名、三色瓦统一为青琉璃；光绪十五年（1889）毁于雷火，光绪二十二年（1896）按原制重建，即今日所见。</p>
+  <h4>尺度与依据</h4>
+  <ul>
+    <li>祈谷坛三层，径 90.3 / 79.3 / 68.2 米；每层九级踏跺、下层十级，台高取 5.6 米（文献记 5.2–6.3 米）。</li>
+    <li>每层栏板 108 块，八出陛梯形栏板 96 块，共 420 块；上层蟠龙望柱、螭首出水，中层翔凤，下层朵云。</li>
+    <li>南三出陛为正中与两侧 30° 放射，正对殿南三门；北三出陛并列三路，东西各一出陛——依卫星影像布置。</li>
+    <li>殿高 31.6 米，外檐柱圈径约 24 米；龙井柱 4、金柱 12、檐柱 12。下、中、上檐分别为五、七、九踩斗栱，84 / 60 / 36 攒。</li>
+    <li>宝顶铜胎鎏金，宝珠腰径 1.98 米；九龙华带匾青底金书「祈年殿」，1935 年大修时略去满文。</li>
+  </ul>
+  <h4>制作</h4>
+  <p>全部体素由程序按实测尺寸逐格生成，没有使用任何现成三维模型或体素作品；斗栱、龙凤和玺彩画、隔扇菱花与匾额三字，都是逐格设计的体素模板。檐口高度用照片反算相机位置后校核。体素经贪婪合并后实时渲染，带太阳阴影、接触遮蔽与天光遮蔽体。</p>
+  <h4>操作</h4>
+  <p class="keys"><kbd>1</kbd>–<kbd>6</kbd> 视角 · <kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd> 天时 · <kbd>H</kbd> 纯净 · 双击复位</p>
+  <p class="credit">Grok 4.6 · 2026.10 · 体素工坊</p>
+</dialog>
+
+<div id="loader" class="loader">
+  <div class="loader-inner">
+    <span class="seal big" aria-hidden="true">祈</span>
+    <p class="loader-title">祈年 · 正在垒砌</p>
+    <div class="loader-track"><i id="load-bar"></i></div>
+    <p class="loader-pct"><span id="load-pct">00</span><small>%</small></p>
+    <p id="load-note" class="loader-note">天坛祈年殿 · 1 体素 = 10 厘米</p>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
