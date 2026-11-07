@@ -1,0 +1,19 @@
+{
+  "name": "autumn-gorge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "《秋峡》 AUTUMN GORGE — a voxel diorama of a QJ-class steam locomotive crossing a stone viaduct",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "shot": "python3 tools/shoot-all.py"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  }
+}
