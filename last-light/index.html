@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c11">
+  <title>月面余光 · LAST LIGHT</title>
+  <meta name="description" content="阿波罗 17 号挑战者登月舱的原创体素展品。gpt-6.2 sol 灰测。">
+  <meta property="og:title" content="月面余光 · LAST LIGHT">
+  <meta property="og:description" content="最后一次阿波罗登月留下的现场。原创可交互体素作品。">
+  <meta property="og:image" content="https://thysummer14.github.io/voxel-atelier/last-light/renders/overview.webp">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="mast">
+    <a class="atelier" href="../"><span class="atelier-mark" aria-hidden="true"></span> 体素工坊</a>
+    <span class="mast-center">VOXEL ATELIER <span aria-hidden="true">/</span> 月面余光</span>
+    <a class="archive-link" href="#notes">作品档案 <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main>
+    <section class="exhibit" aria-labelledby="title">
+      <div class="intro">
+        <p class="mission">APOLLO <strong>17</strong></p>
+        <h1 id="title"><span>月面</span><span>余光</span></h1>
+        <p class="english" lang="en">LAST LIGHT</p>
+        <p class="intro-copy">最后一次阿波罗登月。阳光掠过「挑战者」的金箔，车辙和靴印留在山谷里。</p>
+
+        <dl class="mission-data">
+          <div><dt>着陆地</dt><dd>陶拉斯–利特罗谷</dd></div>
+          <div><dt>任务</dt><dd>1972 年 12 月</dd></div>
+        </dl>
+      </div>
+
+      <div class="display">
+        <div class="frame" id="frame">
+          <div class="viewport" id="viewport" tabindex="0" role="region" aria-label="月面余光三维展品" aria-describedby="controls-hint">
+            <img class="poster" src="./renders/overview.webp" width="1800" height="1250" alt="金色登月舱、月球车和两名宇航员立于带撞击坑与剖面层理的月壤上">
+            <div class="canvas-host" id="canvas-host"></div>
+            <p class="load-state" id="load-state" role="status"></p>
+          </div>
+          <div class="view-chrome" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="console">
+          <div class="views" role="group" aria-label="镜头">
+            <button type="button" data-shot="overview" aria-pressed="true" disabled><span>01</span> 全景</button>
+            <button type="button" data-shot="lander" aria-pressed="false" disabled><span>02</span> 登月舱</button>
+            <button type="button" data-shot="rover" aria-pressed="false" disabled><span>03</span> 月球车</button>
+            <button type="button" data-shot="surface" aria-pressed="false" disabled><span>04</span> 月面</button>
+          </div>
+          <div class="tools" role="group" aria-label="灯光与操作">
+            <button type="button" id="light" aria-pressed="false" disabled>逆光</button>
+            <button type="button" id="spin" aria-pressed="false" disabled>环绕</button>
+            <button type="button" id="screen" aria-pressed="false" disabled>全屏</button>
+          </div>
+        </div>
+
+        <div class="caption-row">
+          <p id="view-caption" aria-live="polite">一块月壤剖面容纳了着陆点、车辙与撞击坑。</p>
+          <p id="controls-hint">拖动旋转 <span>·</span> 滚轮或捏合缩放<span class="sr-only">。也可用方向键和加减键控制。</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes" id="notes" aria-labelledby="notes-title">
+      <div class="notes-title">
+        <h2 id="notes-title">现场留影</h2>
+        <p>在同一份体素模型中取景。</p>
+      </div>
+      <div class="plates">
+        <figure>
+          <a href="./renders/surface.webp"><img src="./renders/surface.webp" loading="lazy" width="1800" height="1100" alt="月面低视角下的登月舱与远处地球"></a>
+          <figcaption><span>01</span> 月谷里的挑战者</figcaption>
+        </figure>
+        <figure>
+          <a href="./renders/lander.webp"><img src="./renders/lander.webp" loading="lazy" width="1500" height="1200" alt="登月舱的两块三角舷窗、扶梯与四脚支架"></a>
+          <figcaption><span>02</span> 舱窗与金箔</figcaption>
+        </figure>
+        <figure>
+          <a href="./renders/rover.webp"><img src="./renders/rover.webp" loading="lazy" width="1500" height="1200" alt="月球车的网状轮、挡泥板及车载仪器"></a>
+          <figcaption><span>03</span> 车辙尽头</figcaption>
+        </figure>
+      </div>
+
+      <div class="credits">
+        <div>
+          <h3>作品档案</h3>
+          <p>以 NASA 任务照片为实物参考，在整数格点逐层塑造舱体、装备和地形。人物姿态、月面布置和地球大小按画面构图调整。</p>
+          <p><a href="https://www.nasa.gov/image-detail/amf-as17-134-20382/">NASA 登月舱实拍 ↗</a><a href="https://www.nasa.gov/image-detail/amf-as17-146-22296/">NASA 月球车实拍 ↗</a></p>
+        </div>
+        <div class="downloads">
+          <a href="./last-light.vox" download>下载体素模型 <small>VOX</small></a>
+          <a href="./renders/overview.webp" download>下载全景留影 <small>WEBP</small></a>
+          <a href="https://github.com/ThySummer14/voxel-atelier/tree/main/last-light">查看生成源码 <small>↗</small></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <span>月面余光 <span aria-hidden="true">/</span> LAST LIGHT</span>
+    <span>体素创作 <strong>gpt-6.2 sol 灰测</strong></span>
+  </footer>
+  <noscript><p class="no-js">可浏览静态留影。启用 JavaScript 后可查看三维展品。</p></noscript>
+  <script type="module" src="./src/main.mjs"></script>
+</body>
+</html>
