@@ -268,5 +268,15 @@ window.WORKS = [
     date: "2026.11",
     accent: "#b0562f",
     desc: "QJ-6884 前进型机车驶过山谷石拱桥：华氏配气随动轮真正联动，秋色峡谷与站台隧道同在一卷。"
+  },
+  {
+    slug: "last-light",
+    title: "月面余光",
+    en: "LAST LIGHT",
+    cat: "机械",
+    model: "gpt-6.2 sol 灰测",
+    date: "2026.11",
+    accent: "#ecb675",
+    desc: "阿波罗 17 号挑战者登月舱、月球车与两名宇航员，立在一块有车辙和撞击坑的月壤剖面上。"
   }
 ];
