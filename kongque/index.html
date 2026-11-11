@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>孔雀开屏 · PEACOCK DISPLAY — 体素工坊</title>
+<meta name="description" content="真实蓝孔雀开屏的实时体素：透空蕾丝尾屏、百枚虹彩眼斑。模型 Qwen4-Max-Preview。">
+<link rel="stylesheet" href="./assets/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js",
+    "three/addons/": "./vendor/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app">
+  <canvas id="scene"></canvas>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-fan" aria-hidden="true"></div>
+      <div class="loader-title">孔雀开屏</div>
+      <div class="loader-sub">PEACOCK DISPLAY</div>
+      <div class="loader-bar"><i id="loaderFill"></i></div>
+      <div class="loader-note" id="loaderNote">正在装配体素…</div>
+    </div>
+  </div>
+
+  <header id="hud-top">
+    <div class="brand">
+      <a class="back" href="../" title="返回展厅">← 展厅</a>
+      <div class="titles">
+        <h1>孔雀开屏<span>PEACOCK DISPLAY</span></h1>
+        <p class="credit">体素工坊 · 生灵 · 模型 <b>Qwen4-Max-Preview</b></p>
+      </div>
+    </div>
+    <div class="stats" id="stats">
+      <span id="statVox">—</span> 枚可见体素 · <span id="statFeather">—</span> 枚眼斑羽
+    </div>
+  </header>
+
+  <aside id="hud-side">
+    <div class="panel">
+      <div class="panel-title">视角</div>
+      <div class="btnrow">
+        <button data-view="front" class="btn">正面</button>
+        <button data-view="threeq" class="btn">三四侧</button>
+        <button data-view="side" class="btn">侧面</button>
+        <button data-view="top" class="btn">俯视</button>
+        <button data-view="eye" class="btn">眼斑特写</button>
+      </div>
+      <div class="panel-title">演绎</div>
+      <div class="btnrow">
+        <button id="tglRotate" class="btn on" aria-pressed="true">自动环游</button>
+        <button id="tglIrid" class="btn on" aria-pressed="true">虹彩</button>
+        <button id="tglPetal" class="btn on" aria-pressed="true">落英</button>
+        <button id="tglBloom" class="btn on" aria-pressed="true">辉光</button>
+      </div>
+      <div class="btnrow">
+        <button id="btnReset" class="btn wide">重置视角</button>
+      </div>
+    </div>
+    <div class="panel hint">
+      <p>拖拽环视 · 滚轮推拉 · 点击羽屏聚焦眼斑</p>
+      <p class="dim">尾屏为透空蕾丝结构：细羽轴 + 人字羽枝 + 末端眼斑，忠实于真实开屏照片，而非实心圆盘。</p>
+    </div>
+  </aside>
+
+  <footer id="hud-bottom">
+    <span class="dot" style="--c:#0e9e57"></span> 眼斑 · 靛核 / 翠环 / 青边 / 金场 / 铜缘
+    <span class="sep"></span>
+    <span class="dot" style="--c:#1746c8"></span> 颈胸虹彩钴蓝
+    <span class="sep"></span>
+    <span class="dot" style="--c:#c9a227"></span> 披肩金绿
+  </footer>
+</div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

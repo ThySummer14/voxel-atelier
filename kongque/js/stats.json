@@ -1,0 +1,24 @@
+{
+  "dims": [
+    460,
+    300,
+    220
+  ],
+  "origin": [
+    -230,
+    0,
+    -110
+  ],
+  "surface_voxels": 308805,
+  "solid_voxels": 547023,
+  "palette_entries": 46,
+  "bbox_world": [
+    -224,
+    224,
+    0,
+    284,
+    -65,
+    109
+  ],
+  "feathers": 158
+}

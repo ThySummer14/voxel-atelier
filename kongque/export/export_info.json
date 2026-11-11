@@ -1,0 +1,35 @@
+{
+  "blocks": [
+    "andesite",
+    "bamboo_planks",
+    "calcite",
+    "cherry_planks",
+    "cyan_concrete",
+    "diamond_block",
+    "emerald_block",
+    "exposed_copper",
+    "gold_block",
+    "green_concrete",
+    "hay_block",
+    "lapis_block",
+    "light_blue_concrete",
+    "moss_block",
+    "netherite_block",
+    "obsidian",
+    "orange_terracotta",
+    "packed_mud",
+    "sand",
+    "spruce_planks",
+    "tuff",
+    "warped_planks",
+    "white_concrete",
+    "white_terracotta",
+    "white_wool"
+  ],
+  "crop_dims": [
+    449,
+    285,
+    175
+  ],
+  "voxels": 547023
+}

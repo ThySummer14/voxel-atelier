@@ -13,7 +13,7 @@
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
-  const categoryOrder = ["山水", "建筑", "机械", "奇想", "静帧"];
+  const categoryOrder = ["山水", "建筑", "机械", "奇想", "生灵", "静帧"];
   const categories = [...new Set(works.map((w) => w.cat))]
     .sort((a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b));
   const models = [...new Set(works.map((w) => w.model).filter(Boolean))]

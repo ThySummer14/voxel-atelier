@@ -278,5 +278,15 @@ window.WORKS = [
     date: "2026.11",
     accent: "#ecb675",
     desc: "阿波罗 17 号挑战者登月舱、月球车与两名宇航员，立在一块有车辙和撞击坑的月壤剖面上。"
+  },
+  {
+    slug: "kongque",
+    title: "孔雀开屏",
+    en: "PEACOCK DISPLAY",
+    cat: "生灵",
+    model: "Qwen4-Max-Preview",
+    date: "2026.11",
+    accent: "#0e9e57",
+    desc: "真实蓝孔雀开屏的实时体素：透空蕾丝尾屏、158 枚虹彩眼斑随视角流转，羽屏呼吸、落英缤纷，可点击聚焦眼斑。"
   }
 ];
