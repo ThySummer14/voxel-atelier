@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>悬空千仞 · XUANKONG 491 — 体素工坊</title>
+<meta name="description" content="恒山悬空寺绝壁力学剖面的实时体素：203.6 万枚体素、半插飞梁 X 光剖视、四时天光与古寺音景。模型 Gemini 4 Carbon。">
+<link rel="stylesheet" href="./js/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js",
+    "three/addons/": "./vendor/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="canvas-wrap"></div>
+
+  <!-- Minimalist Classical Chinese Editorial HUD -->
+  <header id="hud-top" aria-label="作品标题与时辰">
+    <div class="brand-block">
+      <a class="back-link" href="../" title="返回展厅">← 展厅</a>
+      <div class="seal-stamp" aria-hidden="true">太和</div>
+      <div class="title-stack">
+        <h1>悬空千仞</h1>
+        <p class="en-sub">XUANKONG 491 · <b>Gemini 4 Carbon</b></p>
+      </div>
+    </div>
+
+    <div class="top-controls">
+      <div class="time-pills" role="group" aria-label="四时天光">
+        <button class="pill active" data-preset="dawn">一线晨曦</button>
+        <button class="pill" data-preset="noon">翠屏晴岚</button>
+        <button class="pill" data-preset="dusk">赤壁残阳</button>
+        <button class="pill" data-preset="night">寒夜燃灯</button>
+      </div>
+
+      <div class="action-pills">
+        <button id="btn-xray" class="tool-btn" title="透视崖壁，显影深插石孔的铁杉飞梁与木楔力学结构 (快捷键 X)">
+          <span class="dot-ind"></span>飞梁剖视
+        </button>
+        <button id="btn-bell" class="tool-btn" title="叩响钟楼北魏铜钟，激起金龙峡声波涟漪 (快捷键 B)">
+          叩钟
+        </button>
+        <button id="btn-audio" class="tool-btn" title="开启或关闭金龙峡松风、唐峪涧水与檐角铁马音景 (快捷键 M)">
+          听风
+        </button>
+        <button id="btn-note" class="tool-btn" title="查阅营造法式与作品手记 (快捷键 I)">
+          手记
+        </button>
+        <button id="btn-shot" class="tool-btn" title="渲染并下载 3200px 无界面典藏画幅">
+          藏画
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Context Banner when X-Ray Mechanics Mode is active -->
+  <aside id="xray-legend" class="hidden" aria-live="polite">
+    <div class="legend-title">半插飞梁 · 巧借暗托</div>
+    <p>铁杉方梁深凿入翠屏峰赤壁石孔逾三分之二，孔端打入硬木楔越压越紧；下承立木落于天然岩托，刚柔并济，历千五百年地震风雨而不倾。</p>
+  </aside>
+
+  <!-- Bottom Curated Camera Presets -->
+  <nav id="hud-bottom" aria-label="观赏机位">
+    <div class="cam-bar">
+      <button class="cam-btn active" data-view="panorama">金龙全揽</button>
+      <button class="cam-btn" data-view="threeTeachings">三教凌虚</button>
+      <button class="cam-btn" data-view="skyWalkway">双栈穿云</button>
+      <button class="cam-btn" data-view="mechanics">飞梁探秘</button>
+      <button class="cam-btn" data-view="bellDrum">钟鼓对峙</button>
+      <button class="cam-btn" data-view="valleyUp">壮观仰止</button>
+      <button class="cam-btn" data-view="bridge">古桥听涧</button>
+    </div>
+  </nav>
+
+  <!-- Architectural Monograph Drawer (`营造手记`) -->
+  <section id="note-drawer" class="hidden" role="dialog" aria-modal="false" aria-labelledby="note-heading">
+    <div class="drawer-header">
+      <div>
+        <h2 id="note-heading">营造手记 · 翠屏峰悬空寺</h2>
+        <p class="drawer-sub">北魏太和十五年（公元 491 年） · 恒山金龙峡西崖</p>
+      </div>
+      <button id="btn-close-note" class="close-btn" aria-label="关闭">×</button>
+    </div>
+    <div class="drawer-body">
+      <p><strong>选址天机：</strong>悬空寺嵌于恒山金龙峡翠屏峰刀削赤壁的天然凹槽内，上方危岩外挑如巨伞遮蔽落石雨水，南北突岩环抱挡风，全寺面东，每日仅迎晨光两小时，木构遂免暴晒朽裂。</p>
+      <p><strong>半插飞梁：</strong>全寺四十余间殿宇并非仅靠崖下细木支撑，真正承重核心乃深凿入山腹石孔逾三分之二的桐油铁杉横梁，孔底打入木楔锁死；下悬立木精准落于岩壁暗托，与横梁共组超静定木骨。</p>
+      <p><strong>一院两楼：</strong>自南山门拾级而入，经钟鼓二楼夹峙之双层院落，越过凌空双层飞栈，直抵全寺至高处的北楼「三教殿」——释迦牟尼、孔子、老子三教始祖同殿端坐；崖底唐峪河畔巨石镌刻李白「壮观」墨迹。</p>
+      <div class="drawer-actions">
+        <button id="btn-download-vox" class="primary-dl">下载 1:1 全尺寸体素模型 (.vox)</button>
+      </div>
+      <p class="key-hints">快捷键：1–7 切换机位 · X 飞梁剖视 · B 叩钟 · T 切换天光 · H 隐去界面</p>
+    </div>
+  </section>
+
+  <!-- Subtle Loading Curtain -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="seal-large">悬空</div>
+      <p id="loader-status">正在开凿翠屏峰绝壁与铁杉飞梁…</p>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

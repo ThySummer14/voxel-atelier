@@ -1,6 +1,6 @@
 # 体素工坊 · VOXEL ATELIER
 
-> 2026 年秋季的 29 件体素作品合集。山水、楼阁、机械、生灵与时间，同一个命题，不同模型的答卷。
+> 2026 年秋季的 30 件体素作品合集。山水、楼阁、机械、生灵与时间，同一个命题，不同模型的答卷。
 
 - **在线展厅**：<https://thysummer14.github.io/voxel-atelier/>
 - **仓库**：<https://github.com/ThySummer14/voxel-atelier>
@@ -40,6 +40,7 @@
 | 27 | `qiuxia/` | 秋峡 | 机械 | Qoder | `体素测试 / 秋峡-autumn-gorge` |
 | 28 | `last-light/` | 月面余光 | 机械 | gpt-6.2 sol 灰测 | `last-light/src/` |
 | 29 | `kongque/` | 孔雀开屏 | 生灵 | Qwen4-Max-Preview | `kongque/` |
+| 30 | `xuankong-491/` | 悬空千仞 | 建筑 | Gemini 4 Carbon | `体素测试 / 悬空千仞-xuankong-491` |
 
 编号为展厅动线，不代表创作次序。模型名取自作品目录或交付文档；没有可靠记录的早期作品统一显示「模型未标注」。
 
