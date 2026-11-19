@@ -298,5 +298,15 @@ window.WORKS = [
     date: "2026.11",
     accent: "#a95c2e",
     desc: "恒山悬空寺的绝壁力学剖面：203.6 万枚体素嵌于刀削赤壁，半插飞梁可手术级剖视，四时天光与古寺音景俱全。"
+  },
+  {
+    slug: "tidal-shift",
+    title: "潮线交班",
+    en: "TIDAL SHIFT",
+    cat: "建筑",
+    model: "gpt-6.2 sol",
+    date: "2026.11",
+    accent: "#9c4e3e",
+    desc: "蓝时的香港葵青货柜码头。岸桥仍在作业，昂船洲大桥的灯光照进海峡。"
   }
 ];

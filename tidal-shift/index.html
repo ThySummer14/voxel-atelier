@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN" data-work="tidal-shift">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="author" content="gpt-6.2 sol">
+  <meta name="description" content="潮线交班。香港葵青码头与昂船洲大桥的体素作品，由 gpt-6.2 sol 制作。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="潮线交班 · Tidal Shift">
+  <meta property="og:description" content="双塔之间，葵青码头的夜班正在接手。作者 gpt-6.2 sol。">
+  <meta property="og:image" content="https://thysummer14.github.io/voxel-atelier/assets/covers/tidal-shift.jpg">
+  <meta name="color-scheme" content="dark light">
+  <title>潮线交班 · Tidal Shift</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./viewer.css">
+  <script defer src="./viewer.js"></script>
+</head>
+<body>
+  <header class="topline">
+    <a class="back" href="../"><span aria-hidden="true">←</span> 体素工坊</a>
+    <div class="top-actions">
+      <p class="credit">作品 <span>gpt-6.2 sol</span></p>
+      <a class="text-action" href="./README.md" id="open-archive">图版与模型 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="exhibition">
+      <h1>潮线交班 <span lang="en">Tidal Shift</span></h1>
+      <p class="location">香港，葵青货柜码头 <span lang="en">KWAI TSING, HONG KONG</span></p>
+    </div>
+
+    <figure class="exhibit" aria-label="实时体素港口">
+      <div class="stage" id="stage" aria-label="港口观景窗">
+        <img class="poster" src="./preview.webp" width="1600" height="900" fetchpriority="high"
+             alt="蓝时的葵青港口。近处是集装箱轮与红色岸桥，水面映出昂船洲大桥的灯光。">
+        <div class="stage-tools" id="stage-tools" hidden>
+          <button type="button" class="stage-button" id="motion" aria-pressed="false">暂停</button>
+          <button type="button" class="stage-button" id="full" aria-pressed="false">全屏</button>
+        </div>
+        <p class="render-status" id="render-status" role="status" hidden></p>
+        <noscript><p class="render-status">启用 JavaScript 后可以转动场景。</p></noscript>
+      </div>
+      <figcaption class="console" id="view-caption">
+        <div class="console-head">
+          <fieldset class="control-group" id="views" disabled>
+            <legend>视点</legend>
+            <div class="control-items">
+              <button type="button" data-view="harbor" aria-pressed="true">全港</button>
+              <button type="button" data-view="berth" aria-pressed="false">八号码头</button>
+              <button type="button" data-view="bridge" aria-pressed="false">昂船洲大桥</button>
+              <button type="button" data-view="channel" aria-pressed="false">引水航道</button>
+              <button type="button" data-view="yard" aria-pressed="false">交接堆场</button>
+            </div>
+          </fieldset>
+          <fieldset class="control-group" id="lights" disabled>
+            <legend>光线</legend>
+            <div class="control-items">
+              <button type="button" data-light="dusk" aria-pressed="false">斜阳 <time>17:20</time></button>
+              <button type="button" data-light="blue" aria-pressed="true">蓝时 <time>18:42</time></button>
+              <button type="button" data-light="night" aria-pressed="false">夜班 <time>22:10</time></button>
+            </div>
+          </fieldset>
+        </div>
+        <div class="console-foot">
+          <p class="caption" id="caption" aria-live="polite">昂船洲与青衣隔水相望。货柜轮在东岸靠泊，双塔之间留出进港航道。</p>
+          <div class="view-actions">
+            <p class="input-hint" aria-hidden="true"><span class="mouse-hint">拖动旋转 / 滚轮缩放</span><span class="touch-hint">拖动旋转 / 双指缩放</span></p>
+            <button type="button" class="text-action" id="reset" disabled>复位</button>
+          </div>
+        </div>
+      </figcaption>
+    </figure>
+  </main>
+
+  <dialog id="archive" aria-labelledby="archive-title">
+    <div class="archive-header">
+      <div>
+        <h2 id="archive-title">图版与模型</h2>
+        <p>潮线交班 <span lang="en">TIDAL SHIFT</span></p>
+      </div>
+      <form method="dialog"><button class="text-action" type="submit">关闭 <span aria-hidden="true">×</span></button></form>
+    </div>
+    <div class="plate-grid">
+      <a class="plate-link plate-main" href="./renders/01-blue-hour.jpg" target="_blank" rel="noopener">
+        <img src="./preview.webp" width="1600" height="900" loading="lazy" alt="蓝时的全港画面，集装箱船停靠于东岸">
+        <span>全港 · 蓝时 <small>01</small></span>
+      </a>
+      <a class="plate-link" href="./renders/02-berth-08.jpg" target="_blank" rel="noopener">
+        <img src="./renders/02-berth-08.jpg" width="2560" height="1440" loading="lazy" alt="八号码头红色岸桥从货柜轮吊起一只货柜">
+        <span>八号码头 · 斜阳 <small>02</small></span>
+      </a>
+      <a class="plate-link" href="./renders/03-night-crossing.jpg" target="_blank" rel="noopener">
+        <img src="./renders/03-night-crossing.jpg" width="2560" height="1440" loading="lazy" alt="夜色中的昂船洲大桥与两岸泊位">
+        <span>昂船洲大桥 · 夜班 <small>03</small></span>
+      </a>
+      <a class="plate-link" href="./renders/04-pilot-channel.jpg" target="_blank" rel="noopener">
+        <img src="./renders/04-pilot-channel.jpg" width="2560" height="1440" loading="lazy" alt="从水面看引水艇、拖轮和航标灯">
+        <span>引水航道 · 蓝时 <small>04</small></span>
+      </a>
+      <a class="plate-link" href="./renders/05-container-yard.jpg" target="_blank" rel="noopener">
+        <img src="./renders/05-container-yard.jpg" width="2560" height="1440" loading="lazy" alt="橙色龙门吊跨过货柜堆场和堆叠货柜">
+        <span>交接堆场 · 斜阳 <small>05</small></span>
+      </a>
+    </div>
+    <div class="archive-actions">
+      <a class="archive-download" href="./tidal-shift.vox" download>下载 MagicaVoxel 模型 <span aria-hidden="true">↓</span></a>
+      <button class="text-action" type="button" id="capture" disabled>保存当前画面 <span aria-hidden="true">↓</span></button>
+      <a class="text-action" href="https://github.com/ThySummer14/voxel-atelier/tree/main/tidal-shift">源文件与参考 <span aria-hidden="true">↗</span></a>
+      <output id="capture-status" class="capture-status" role="status"></output>
+    </div>
+  </dialog>
+</body>
+</html>

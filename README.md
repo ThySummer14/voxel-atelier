@@ -1,6 +1,6 @@
 # 体素工坊 · VOXEL ATELIER
 
-> 2026 年秋季的 30 件体素作品合集。山水、楼阁、机械、生灵与时间，同一个命题，不同模型的答卷。
+> 2026 年秋季的 31 件体素作品合集。山水、楼阁、机械、生灵与时间，同一个命题，不同模型的答卷。
 
 - **在线展厅**：<https://thysummer14.github.io/voxel-atelier/>
 - **仓库**：<https://github.com/ThySummer14/voxel-atelier>
@@ -43,6 +43,7 @@
 | 30 | `xuankong-491/` | 悬空千仞 | 建筑 | Gemini 4 Carbon | `体素测试 / 悬空千仞-xuankong-491` |
 
 编号为展厅动线，不代表创作次序。模型名取自作品目录或交付文档；没有可靠记录的早期作品统一显示「模型未标注」。
+| 31 | [tidal-shift/](tidal-shift/) | 潮线交班 | 建筑 | gpt-6.2 sol | `tidal-shift` |
 
 ## 目录结构
 
