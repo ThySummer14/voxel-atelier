@@ -1,0 +1,13 @@
+{
+  "title": "VALENTINE",
+  "artist": "HungerG (Qwen)",
+  "format": "MagicaVoxel 150",
+  "models": 57,
+  "modelSizeVoxels": [
+    104,
+    77,
+    76
+  ],
+  "voxels": 184915,
+  "note": "Separate models preserve the keyboard, carriage, paper and mechanism for editing."
+}

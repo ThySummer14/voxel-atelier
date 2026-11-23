@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VALENTINE 1969 — HungerG（Qwen）</title>
+  <meta name="description" content="HungerG（Qwen）的实时体素作品：1969 Olivetti Valentine 打字机。可旋转、敲击、进纸、拆解机芯。">
+  <meta name="theme-color" content="#ece7dd">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VALENTINE 1969 — 体素工坊">
+  <meta property="og:description" content="一台可以亲手敲击的朱红情人节打字机。">
+  <meta property="og:image" content="../assets/covers/valentine.jpg">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/barlow-condensed.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#workbench">跳到作品</a>
+
+  <header class="masthead">
+    <a class="atelier-link" href="../" aria-label="返回体素工坊">
+      <span class="atelier-seal" aria-hidden="true">素</span>
+      <span>体素工坊<small>VOXEL ATELIER</small></span>
+    </a>
+    <div class="masthead-center">OBJECT STUDY <span>—</span> 1969 / ITALY</div>
+    <div class="credit"><span>DESIGNED IN VOXELS BY</span><strong>HungerG（Qwen）</strong></div>
+  </header>
+
+  <main id="workbench">
+    <section class="workbench" aria-labelledby="work-title">
+      <div class="paper-grid" aria-hidden="true"></div>
+      <div class="ghost-word" aria-hidden="true">VALENTINE</div>
+
+      <div class="intro">
+        <p class="eyebrow"><span></span> OLIVETTI · IVREA · 1969</p>
+        <h1 id="work-title">VALEN<span>TINE</span></h1>
+        <p class="subtitle">A small red revolution.</p>
+        <p class="intro-copy">不是陈列在玻璃后面的打字机。<br>按下键盘，让字车行走，让纸页留下字迹。</p>
+        <dl class="facts">
+          <div><dt>设计</dt><dd>Ettore Sottsass</dd></div>
+          <div><dt>制造</dt><dd>Olivetti, Italy</dd></div>
+          <div><dt>构成</dt><dd id="voxel-fact">184,915 voxels</dd></div>
+        </dl>
+        <p class="direct-note"><span class="pulse-dot"></span> 你的键盘，就是它的键盘</p>
+      </div>
+
+      <div class="viewport-shell">
+        <div class="viewport-topline">
+          <span id="view-label">完整机身</span>
+          <span class="live-badge"><i></i> LIVE VOXEL OBJECT</span>
+        </div>
+        <div id="viewport" role="region" tabindex="0" aria-label="可交互的 Olivetti Valentine 体素打字机" aria-describedby="viewer-help"></div>
+        <p class="sr-only" id="viewer-help">拖拽或使用方向键旋转，滚轮或加减键缩放，Home 键恢复整体视图。聚焦视口后可直接使用键盘敲击字符。</p>
+        <div class="loading" id="loading" role="status">
+          <div class="loading-mark">V</div>
+          <p>正在装配 184,915 枚体素</p>
+          <span>ASSEMBLING THE OBJECT</span>
+        </div>
+        <div class="fatal" id="fatal" hidden role="alert"></div>
+        <div class="drag-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 3h8a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"/><path d="M12 3v6m-2-2 2 2 2-2"/></svg>
+          <span>拖拽旋转<br>滚轮缩放</span>
+        </div>
+        <div class="paper-readout" aria-live="polite">
+          <span>PAPER / 01</span>
+          <p id="paper-preview">A SMALL RED REVOLUTION.</p>
+        </div>
+      </div>
+
+      <nav class="view-rail" aria-label="观察部件">
+        <p>观察部件</p>
+        <button class="view-button is-active" type="button" data-view="overview" aria-pressed="true">
+          <span>整体</span><small>OBJECT</small>
+        </button>
+        <button class="view-button" type="button" data-view="keyboard" aria-pressed="false">
+          <span>键盘</span><small>KEYS</small>
+        </button>
+        <button class="view-button" type="button" data-view="carriage" aria-pressed="false">
+          <span>字车</span><small>CARRIAGE</small>
+        </button>
+        <button class="view-button" type="button" data-view="mechanism" aria-pressed="false">
+          <span>机芯</span><small>MECHANISM</small>
+        </button>
+      </nav>
+
+      <div class="control-deck" aria-label="作品控制">
+        <div class="deck-group">
+          <button id="explode-button" class="control primary" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4Zm-8 9 8 4 8-4M4 17l8 4 8-4"/></svg>
+            <span>拆解机身</span>
+          </button>
+          <button id="type-button" class="control" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M18 10h.01M7 14h.01M10 14h7"/></svg>
+            <span>打一句话</span>
+          </button>
+          <button id="return-button" class="control" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 5v7H5m4-4-4 4 4 4"/></svg>
+            <span>回车进纸</span>
+          </button>
+        </div>
+        <div class="deck-group compact">
+          <button id="rotate-button" class="icon-control" type="button" aria-label="暂停自动环绕" aria-pressed="true" title="自动环绕">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 8a7 7 0 0 1 11.5-2L20 8M4 16l2.4 2A7 7 0 0 0 18 16"/></svg>
+          </button>
+          <button id="light-button" class="icon-control" type="button" aria-label="切换夜班灯光" aria-pressed="false" title="夜班灯光">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg>
+          </button>
+          <button id="sound-button" class="icon-control" type="button" aria-label="关闭打字声音" aria-pressed="true" title="机械声音">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 4a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/></svg>
+          </button>
+          <button id="reset-button" class="icon-control" type="button" aria-label="复位作品" title="复位">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M5.5 15a7 7 0 1 0 .5-7L4 10"/></svg>
+          </button>
+        </div>
+        <p class="deck-status" id="status" role="status">READY · 可以直接敲击键盘</p>
+      </div>
+    </section>
+
+    <section class="object-notes" aria-labelledby="notes-title">
+      <div class="notes-heading">
+        <p class="eyebrow"><span></span> THE OBJECT</p>
+        <h2 id="notes-title">把工业设计，<br>还给每一次敲击。</h2>
+      </div>
+      <div class="note">
+        <span class="note-index">01 / FORM</span>
+        <h3>朱红，不止是颜色</h3>
+        <p>Valentine 把打字机从办公室家具变成可以随身携带的个人物件。硬朗的 ABS 外壳、黑色键帽与裸露的金属机构，在这里被逐格翻译为体素。</p>
+      </div>
+      <div class="note">
+        <span class="note-index">02 / MOTION</span>
+        <h3>每个按键都有回声</h3>
+        <p>44 枚字符键、定位键与回车键独立建模。按键下沉、字车横移、纸页进给与色带机构同步运动，拆解后还能看到扇形的字杆篮和齿轮组。</p>
+      </div>
+      <div class="note">
+        <span class="note-index">03 / MATTER</span>
+        <h3>方块之下，仍是机械</h3>
+        <p>模型由 15 色体素构成，保留键盘、滚筒、色带、纸页与机芯的装配关系。随作品附标准 .vox 文件，可在体素编辑器中继续拆解。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="../">← 返回体素工坊</a>
+    <p>VALENTINE 1969 <span>·</span> HungerG（Qwen）<span>·</span> 2026</p>
+    <a href="./export/valentine.vox" download>下载 .VOX ↓</a>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

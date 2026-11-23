@@ -1,0 +1,75 @@
+{
+  "title": "VALENTINE",
+  "artist": "HungerG (Qwen)",
+  "voxelCount": 184915,
+  "surfaceFaces": 64516,
+  "groupCount": 57,
+  "unitMeters": 0.13,
+  "dimensionsVoxels": [
+    108,
+    82,
+    76
+  ],
+  "palette": [
+    {
+      "name": "valentine",
+      "hex": "#d92e27"
+    },
+    {
+      "name": "signal_red",
+      "hex": "#f04a38"
+    },
+    {
+      "name": "oxide_red",
+      "hex": "#9d201e"
+    },
+    {
+      "name": "ink_black",
+      "hex": "#17191a"
+    },
+    {
+      "name": "soft_black",
+      "hex": "#2b2d2e"
+    },
+    {
+      "name": "graphite",
+      "hex": "#45494a"
+    },
+    {
+      "name": "steel",
+      "hex": "#989e9c"
+    },
+    {
+      "name": "dark_steel",
+      "hex": "#555d5e"
+    },
+    {
+      "name": "paper",
+      "hex": "#f3eddc"
+    },
+    {
+      "name": "paper_shade",
+      "hex": "#ded5c1"
+    },
+    {
+      "name": "ivory",
+      "hex": "#fff8e6"
+    },
+    {
+      "name": "ribbon",
+      "hex": "#371b1c"
+    },
+    {
+      "name": "rubber",
+      "hex": "#101315"
+    },
+    {
+      "name": "chrome",
+      "hex": "#d8dcd8"
+    },
+    {
+      "name": "copper",
+      "hex": "#a85a3e"
+    }
+  ]
+}

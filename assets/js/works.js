@@ -308,5 +308,15 @@ window.WORKS = [
     date: "2026.11",
     accent: "#9c4e3e",
     desc: "蓝时的香港葵青货柜码头。岸桥仍在作业，昂船洲大桥的灯光照进海峡。"
+  },
+  {
+    slug: "valentine",
+    title: "情人节",
+    en: "VALENTINE 1969",
+    cat: "机械",
+    model: "HungerG（Qwen）",
+    date: "2026.11",
+    accent: "#db352c",
+    desc: "1969 Olivetti Valentine 打字机：18.5 万枚体素，键盘、字车、纸页与机芯真实联动。"
   }
 ];

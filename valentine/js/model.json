@@ -1,0 +1,1256 @@
+[
+  {
+    "name": "case",
+    "kind": "plastic",
+    "visible": true,
+    "offset": [
+      0,
+      0,
+      0
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "keyboard",
+    "kind": "plastic",
+    "visible": true,
+    "offset": [
+      0,
+      1.25,
+      0.65
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "ribbon_cover",
+    "kind": "plastic",
+    "visible": true,
+    "offset": [
+      0,
+      2.25,
+      -0.15
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "ribbon",
+    "kind": "rubber",
+    "visible": false,
+    "offset": [
+      0,
+      1.8,
+      -0.25
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "carriage_frame",
+    "kind": "metal",
+    "visible": true,
+    "offset": [
+      0,
+      2.7,
+      -1.35
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "platen",
+    "kind": "rubber",
+    "visible": true,
+    "offset": [
+      0,
+      2.7,
+      -1.35
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "paper",
+    "kind": "paper",
+    "visible": true,
+    "offset": [
+      0,
+      2.7,
+      -1.35
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "paper_bail",
+    "kind": "metal",
+    "visible": true,
+    "offset": [
+      0,
+      2.7,
+      -1.35
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "mechanism",
+    "kind": "metal",
+    "visible": false,
+    "offset": [
+      0,
+      1.9,
+      0
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "side_controls",
+    "kind": "plastic",
+    "visible": true,
+    "offset": [
+      0,
+      0.75,
+      0.65
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "char": null,
+    "key": false
+  },
+  {
+    "name": "key_00",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -38,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "1",
+    "key": true
+  },
+  {
+    "name": "key_01",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -31,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "2",
+    "key": true
+  },
+  {
+    "name": "key_02",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -24,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "3",
+    "key": true
+  },
+  {
+    "name": "key_03",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -17,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "4",
+    "key": true
+  },
+  {
+    "name": "key_04",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -10,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "5",
+    "key": true
+  },
+  {
+    "name": "key_05",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -3,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "6",
+    "key": true
+  },
+  {
+    "name": "key_06",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      4,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "7",
+    "key": true
+  },
+  {
+    "name": "key_07",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      11,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "8",
+    "key": true
+  },
+  {
+    "name": "key_08",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      18,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "9",
+    "key": true
+  },
+  {
+    "name": "key_09",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      25,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "0",
+    "key": true
+  },
+  {
+    "name": "key_10",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      32,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "-",
+    "key": true
+  },
+  {
+    "name": "key_11",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      39,
+      27,
+      -1
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "=",
+    "key": true
+  },
+  {
+    "name": "key_12",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -35,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "Q",
+    "key": true
+  },
+  {
+    "name": "key_13",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -28,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "W",
+    "key": true
+  },
+  {
+    "name": "key_14",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -21,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "E",
+    "key": true
+  },
+  {
+    "name": "key_15",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -14,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "R",
+    "key": true
+  },
+  {
+    "name": "key_16",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -7,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "T",
+    "key": true
+  },
+  {
+    "name": "key_17",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      0,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "Y",
+    "key": true
+  },
+  {
+    "name": "key_18",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      7,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "U",
+    "key": true
+  },
+  {
+    "name": "key_19",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      14,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "I",
+    "key": true
+  },
+  {
+    "name": "key_20",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      21,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "O",
+    "key": true
+  },
+  {
+    "name": "key_21",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      28,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "P",
+    "key": true
+  },
+  {
+    "name": "key_22",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      35,
+      26,
+      6
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "[",
+    "key": true
+  },
+  {
+    "name": "key_23",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -35,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "A",
+    "key": true
+  },
+  {
+    "name": "key_24",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -28,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "S",
+    "key": true
+  },
+  {
+    "name": "key_25",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -21,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "D",
+    "key": true
+  },
+  {
+    "name": "key_26",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -14,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "F",
+    "key": true
+  },
+  {
+    "name": "key_27",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -7,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "G",
+    "key": true
+  },
+  {
+    "name": "key_28",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      0,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "H",
+    "key": true
+  },
+  {
+    "name": "key_29",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      7,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "J",
+    "key": true
+  },
+  {
+    "name": "key_30",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      14,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "K",
+    "key": true
+  },
+  {
+    "name": "key_31",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      21,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "L",
+    "key": true
+  },
+  {
+    "name": "key_32",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      28,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": ";",
+    "key": true
+  },
+  {
+    "name": "key_33",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      35,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "'",
+    "key": true
+  },
+  {
+    "name": "key_34",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -32,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "Z",
+    "key": true
+  },
+  {
+    "name": "key_35",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -25,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "X",
+    "key": true
+  },
+  {
+    "name": "key_36",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -18,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "C",
+    "key": true
+  },
+  {
+    "name": "key_37",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -11,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "V",
+    "key": true
+  },
+  {
+    "name": "key_38",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -4,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "B",
+    "key": true
+  },
+  {
+    "name": "key_39",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      3,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "N",
+    "key": true
+  },
+  {
+    "name": "key_40",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      10,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "M",
+    "key": true
+  },
+  {
+    "name": "key_41",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      17,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": ",",
+    "key": true
+  },
+  {
+    "name": "key_42",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      24,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": ".",
+    "key": true
+  },
+  {
+    "name": "key_43",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      31,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "/",
+    "key": true
+  },
+  {
+    "name": "key_tab",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      -43,
+      25,
+      13
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "\t",
+    "key": true
+  },
+  {
+    "name": "key_return",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      43,
+      24,
+      20
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": "↵",
+    "key": true
+  },
+  {
+    "name": "key_space",
+    "kind": "key",
+    "visible": true,
+    "offset": [
+      0,
+      2.5,
+      1.2
+    ],
+    "position": [
+      0,
+      23,
+      28
+    ],
+    "rotation": [
+      0.15,
+      0,
+      0
+    ],
+    "char": " ",
+    "key": true
+  }
+]
